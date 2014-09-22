@@ -1,0 +1,97 @@
+.navbox li.multiple {
+    display: table;
+}
+
+.navbox li.multiple a {
+    display: table-cell;
+}
+
+.navbox span.name {
+    position: absolute;
+    right: 0.5em;
+    font-size: smaller;
+    font-style: italic;
+}
+
+.navbox .inlined-nodes {
+    display: table;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+#conditional-expression-submenu .inlined-nodes {
+    display: block;
+    margin-left: 1.5em;
+    margin-right: 1.5em;
+    background-image: url("left-parenthese.svg"), url("right-parenthese.svg");
+    background-repeat: no-repeat;
+    background-position: 0% 50%, 100% 50%;
+    background-size: 100% 100%, 100% 100%;
+    padding: 0.2em 1.1em;
+}
+
+main dl dt {
+    text-align: center;
+    margin: 1em auto 0.5em;
+    padding-bottom: 0.25em;
+    border-bottom: thin solid lightgray;
+    width: 15em;
+}
+
+main dl dd {
+    text-align: center;
+}
+
+main dl dd table {
+    text-align: left;
+}
+
+#radix-aliases-table thead th {
+    vertical-align: bottom;
+}
+
+table.arguments tr th {
+    text-align: left;
+}
+
+table.arguments th.modifiers {
+    text-align: center;
+    letter-spacing: 0.05em;
+    font-size: larger;
+}
+
+table.bound-printer-variables {
+    border: none;
+}
+
+table.bound-printer-variables th, table.bound-printer-variables td {
+    text-align: center;
+    background: transparent;
+    border: none;
+    padding: 0.3em 1.5em;
+}
+
+table.bound-printer-variables th {
+    padding-top: 0;
+}
+
+table.bound-printer-variables td {
+    padding-bottom: 0.9em;
+}
+
+.hanging-menu {
+    position: static;
+    float: right;
+}
+
+.hanging-menu span.details {
+    display: none;
+}
+
+.hanging-menu:hover span.details {
+    display: inline;
+}
+
+.hanging-menu:hover span.details + a {
+    color: black;
+}
