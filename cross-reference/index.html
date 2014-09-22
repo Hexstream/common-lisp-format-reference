@@ -120,7 +120,59 @@
         </p>
       </header>
 
-      <p>Stub.</p>
+      <section id="function-alternatives">
+
+        <h1 class="breadcrumbs">
+          <a href="#function-alternatives" class="anchor">⚓</a>
+          <a href="../">FORMAT reference</a>
+          <span class="separator"> » </span>
+          <a href="#">Cross-reference</a>
+          <span class="separator"> » </span>
+          <a class="here">Function alternatives</a>
+        </h1>
+
+        <table>
+          <thead>
+            <tr>
+              <th>Format directive</th>
+              <th>Function</th>
+              <th>To string</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <th>~W</th>
+              <td><a class="symbol" href="#write">write</a></td>
+              <td><a class="symbol" href="#write-to-string">write-to-string</a></td>
+            </tr>
+            <tr>
+              <th>~S</th>
+              <td><a class="symbol" href="#prin1">prin1</a></td>
+              <td><a class="symbol" href="#prin1-to-string">prin1-to-string</a></td>
+            </tr>
+            <tr>
+              <th>~A</th>
+              <td><a class="symbol" href="#princ">princ</a></td>
+              <td><a class="symbol" href="#princ-to-string">princ-to-string</a></td>
+            </tr>
+            <tr>
+              <th>~%</th>
+              <td><a class="symbol" href="#terpri">terpri</a></td>
+              <td></td>
+            </tr>
+            <tr>
+              <th>~&</th>
+              <td><a class="symbol" href="#fresh-line">fresh-line</a></td>
+              <td></td>
+            </tr>
+          </tbody>
+        </table>
+
+        <pre class="example"><code class="common-lisp">(format nil "~S" <var>object</var>) == (prin1-to-string <var>object</var>)</code></pre>
+
+        <pre class="example"><code class="common-lisp">(format <var>stream</var> "~A" <var>object</var>) == (princ <var>object</var> <var>stream</var>)</code></pre>
+
+      </section>
 
     </main>
 

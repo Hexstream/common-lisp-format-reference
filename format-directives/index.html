@@ -44,12 +44,77 @@
 
         <div class="level-separator"></div>
 
-        <nav class="navbox empty">
+        <nav class="navbox">
           <h1>
             <a class="here">Format directives</a>
             <span class="here-indicator-left"> </span>
             <span class="here-indicator-right"> </span>
           </h1>
+          <ul>
+            <li><a href="#~C_character">~C <span class="name">(Character)</span></a></li>
+            <li class="multiple">
+              <a href="#~percent_newline">~%</a><a href="#~ampersand_fresh-line">~&amp;</a><a href="#~vertical-line_page">~|</a><a href="#~tilde_tilde">~~</a>
+            </li>
+          </ul>
+          <ul>
+            <li><a href="#~R_radix">~R <span class="name">(Radix)</span></a></li>
+            <li><a href="#radix-aliases">~D ~B ~O ~X</a></li>
+          </ul>
+          <ul>
+            <li>
+              <a href="#floating-point" class="inlining-node">Floating Point</a>
+              <ul class="inlined-nodes">
+                <li class="multiple"><a href="#~F_fixed-format-floating-point">~F</a><a href="#~E_exponential-floating-point">~E</a><a href="#~G_general-floating-point">~G</a><a href="#~dollar_monetary-floating-point">~$</a></li>
+              </ul>
+            </li>
+          </ul>
+          <ul>
+            <li><a href="#~A_aesthetic">~A <span class="name">(Aesthetic)</span></a></li>
+            <li><a href="#~S_standard">~S <span class="name">(Standard)</span></a></li>
+            <li><a href="#~W_write">~W <span class="name">(Write)</span></a></li>
+          </ul>
+          <ul>
+            <li><a href="#~underscore_conditional-newline">~_ <span class="name">(<abbr title="Conditional">Cond</abbr> Newline)</span></a></li>
+            <li>
+              <a href="#~less-than_logical-block" class="inlining-node">~&lt;~:&gt; <span class="name">(Logical <abbr title="Block">Blk</abbr>)</span></a>
+              <ul class="inlined-nodes">
+                <li class="multiple"><a href="#~semicolon_~less-than_logical-block">~;</a><a href="#~semicolon_~less-than_logical-block">~@;</a><a href="#~caret_~less-than_logical-block">~^</a></li>
+              </ul>
+            </li>
+            <li><a href="#~I_indent">~I <span class="name">(Indent)</span></a></li>
+            <li><a href="#~slash_call-function">~/<var>name</var>/ <span class="name">(Call <abbr title="Function">Func</abbr>)</span></a></li>
+          </ul>
+          <ul>
+            <li><a href="#~T_tabulate">~T <span class="name">(Tabulate)</span></a></li>
+            <li>
+              <a href="#~less-than_justification" class="inlining-node">~&lt;~&gt; <span class="name">(Justification)</span></a>
+              <ul class="inlined-nodes">
+                <li class="multiple"><a href="#~semicolon_~less-than_justification">~;</a><a href="#~semicolon_~less-than_justification">~:;</a><a href="#~caret_~less-than_justification">~^</a></li>
+              </ul>
+            </li>
+          </ul>
+          <ul>
+            <li><a href="#~star_go-to">~* <span class="name">(Go-To)</span></a></li>
+            <li id="conditional-expression-submenu">
+              <a href="#~left-square-bracket_conditional-expression" class="inlining-node">~[~] <span class="name">(<abbr title="Conditional">Cond</abbr> <abbr title="Expression">Expr</abbr>)</span></a>
+              <ul class="inlined-nodes">
+                <li><a href="#~left-square-bracket_case">~[~] <span class="name">(case)</span></a></li>
+                <li><a href="#~left-square-bracket_case">~:[~] <span class="name">(if)</span></a></li>
+                <li><a href="#~left-square-bracket_case">~@[~] <span class="name">(when)</span></a></li>
+              </ul>
+            </li>
+            <li>
+              <a href="#~left-curly-bracket_iteration" class="inlining-node">~{~} <span class="name">(Iteration)</span></a>
+              <ul class="inlined-nodes">
+                <li><a href="#~caret_~less-than_iteration">~^</a></li>
+              </ul>
+            </li>
+            <li><a href="#~question-mark_recursive-processing">~? <span class="name">(Recursive <abbr title="Processing">Proc</abbr>)</span></a></li>
+          </ul>
+          <ul>
+            <li><a href="#~left-parenthesis_case-conversion">~(~) <span class="name">(Case <abbr title="conversion">Conv</abbr>)</span></a></li>
+            <li><a href="#~P_plural">~P <span class="name">(Plural)</span></a></li>
+          </ul>
         </nav>
 
         <div class="level-separator"></div>
@@ -119,7 +184,1966 @@
         </p>
       </header>
 
-      <p>Stub. (I've made good progress on it on a private branch but it's not yet detailed enough to be useful.)</p>
+      <section id="syntax">
+
+        <h1 class="breadcrumbs">
+          <a href="#syntax" class="anchor">⚓</a>
+          <a href="../">FORMAT reference</a>
+          <span class="separator"> » </span>
+          <a href="#">Format directives</a>
+          <span class="separator"> » </span>
+          <a class="here">Syntax</a>
+        </h1>
+
+        <p>Within a FORMAT string, each FORMAT directive invocation is introduced by a literal tilde ("~") and followed by prefix arguments (if any), modifiers (if any) and finally the command name.</p>
+
+        <table>
+          <thead>
+            <tr>
+              <th>Field name</th>
+              <th></th>
+              <th>Prefix arguments</th>
+              <th>Modifiers</th>
+              <th>Command name</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <th>Acceptable input</th>
+              <td>~</td>
+              <td>Comma-separated arguments</td>
+              <td>: and/or @ or nothing</td>
+              <td>One case-insensitive letter</td>
+            </tr>
+          </tbody>
+        </table>
+
+        <section id="special-selection-mechanisms">
+
+          <h1 class="breadcrumbs">
+            <a href="#special-selection-mechanisms" class="anchor">⚓</a>
+            <a href="../">FORMAT reference</a>
+            <span class="separator"> » </span>
+            <a href="#">Format directives</a>
+            <span class="separator"> » </span>
+            <a href="#syntax">Syntax</a>
+            <span class="separator"> » </span>
+            <a class="here">Special selection mechanisms</a>
+          </h1>
+
+          <p><small>("Special selection mechanism" is not a formal term, I just made it up for the purposes of this article.)</small></p>
+
+        </section>
+
+      </section>
+
+      <section id="~C_character">
+
+        <h1 class="breadcrumbs">
+          <a href="#~C_character" class="anchor">⚓</a>
+          <a href="../">FORMAT reference</a>
+          <span class="separator"> » </span>
+          <a href="#">Format directives</a>
+          <span class="separator"> » </span>
+          <a class="here">~C (Character)</a>
+        </h1>
+
+        <nav class="hanging-menu">
+          <ul>
+            <li><a href="http://www.lispworks.com/documentation/HyperSpec/Body/22_caa.htm">CLHS</a></li>
+            <li><a href="../clhs-summary/#~C_character">Summary</a></li>
+          </ul>
+        </nav>
+
+        <dl>
+          <dt>Arguments</dt>
+          <dd>
+            <table class="arguments sparse-table">
+              <thead>
+                <tr>
+                  <th>Prefix</th>
+                  <th colspan="2">Modifiers (select)</th>
+                  <th>Consumed</th>
+                </tr>
+              </thead>
+              <tbody>
+                <tr>
+                  <td rowspan="4" class="not-applicable">∅</td>
+                  <th class="modifiers">∅</th>
+                  <td>write-char (if simple character)</td>
+                  <td rowspan="4">
+                    <ol>
+                      <li>character</li>
+                    </ol>
+                  </td>
+                </tr>
+                <tr>
+                  <th class="modifiers">:</th>
+                  <td>Pretty</td>
+                </tr>
+                <tr>
+                  <th class="modifiers">@</th>
+                  <td>Escape</td>
+                </tr>
+                <tr>
+                  <th class="modifiers">:@</th>
+                  <td>Modifiers</td>
+                </tr>
+              </tbody>
+            </table>
+          </dd>
+          <dt>Bound printer variables</dt>
+          <dd>
+            <table class="bound-printer-variables">
+              <tbody>
+                <tr>
+                  <th rowspan="2">if @ (only)</th>
+                  <th>*print-escape*</th>
+                </tr>
+                <tr>
+                  <td>t</td>
+                </tr>
+              </tbody>
+            </table>
+          </dd>
+        </dl>
+
+      </section>
+
+      <section id="~percent_newline">
+
+        <h1 class="breadcrumbs">
+          <a href="#~percent_newline" class="anchor">⚓</a>
+          <a href="../">FORMAT reference</a>
+          <span class="separator"> » </span>
+          <a href="#">Format directives</a>
+          <span class="separator"> » </span>
+          <span class="related-group">
+            <a class="here">~% (Newline)</a>
+            <a href="#~ampersand_fresh-line">~&amp;</a>
+            <a href="#~vertical-line_page">~|</a>
+            <a href="#~tilde_tilde">~~</a>
+          </span>
+        </h1>
+
+        <nav class="hanging-menu">
+          <ul>
+            <li><a href="http://www.lispworks.com/documentation/HyperSpec/Body/22_cab.htm">CLHS</a></li>
+            <li><a href="../clhs-summary/#~percent_newline">Summary</a></li>
+          </ul>
+        </nav>
+
+        <dl>
+          <dt>Arguments</dt>
+          <dd>
+            <table class="arguments sparse-table">
+              <thead>
+                <tr>
+                  <th>Prefix</th>
+                  <th>Modifiers</th>
+                  <th>Consumed</th>
+                </tr>
+              </thead>
+              <tbody>
+                <tr>
+                  <td>
+                    <ol>
+                      <li>Number of newlines</li>
+                    </ol>
+                  </td>
+                  <td class="not-applicable">∅</td>
+                  <td class="not-applicable">∅</td>
+                </tr>
+              </tbody>
+            </table>
+          </dd>
+        </dl>
+
+      </section>
+
+      <section id="~ampersand_fresh-line">
+
+        <h1 class="breadcrumbs">
+          <a href="#~ampersand_fresh-line" class="anchor">⚓</a>
+          <a href="../">FORMAT reference</a>
+          <span class="separator"> » </span>
+          <a href="#">Format directives</a>
+          <span class="separator"> » </span>
+          <span class="related-group">
+            <a href="#~percent_newline">~%</a>
+            <a class="here">~&amp; (Fresh Line)</a>
+            <a href="#~vertical-line_page">~|</a>
+            <a href="#~tilde_tilde">~~</a>
+          </span>
+        </h1>
+
+        <nav class="hanging-menu">
+          <ul>
+            <li><a href="http://www.lispworks.com/documentation/HyperSpec/Body/22_cac.htm">CLHS</a></li>
+            <li><a href="../clhs-summary/#~ampersand_fresh-line">Summary</a></li>
+          </ul>
+        </nav>
+
+        <dl>
+          <dt>Arguments</dt>
+          <dd>
+            <table class="arguments sparse-table">
+              <thead>
+                <tr>
+                  <th>Prefix</th>
+                  <th>Modifiers</th>
+                  <th>Consumed</th>
+                </tr>
+              </thead>
+              <tbody>
+                <tr>
+                  <td>
+                    <ol>
+                      <li>Number of fresh lines</li>
+                    </ol>
+                  </td>
+                  <td class="not-applicable">∅</td>
+                  <td class="not-applicable">∅</td>
+                </tr>
+              </tbody>
+            </table>
+          </dd>
+        </dl>
+
+      </section>
+
+      <section id="~vertical-line_page">
+
+        <h1 class="breadcrumbs">
+          <a href="#~vertical-line_page" class="anchor">⚓</a>
+          <a href="../">FORMAT reference</a>
+          <span class="separator"> » </span>
+          <a href="#">Format directives</a>
+          <span class="separator"> » </span>
+          <span class="related-group">
+            <a href="#~percent_newline">~%</a>
+            <a href="#~ampersand_fresh-line">~&amp;</a>
+            <a class="here">~| (Page)</a>
+            <a href="#~tilde_tilde">~~</a>
+          </span>
+        </h1>
+
+        <nav class="hanging-menu">
+          <ul>
+            <li><a href="http://www.lispworks.com/documentation/HyperSpec/Body/22_cad.htm">CLHS</a></li>
+            <li><a href="../clhs-summary/#~vertical-line_page">Summary</a></li>
+          </ul>
+        </nav>
+
+        <dl>
+          <dt>Arguments</dt>
+          <dd>
+            <table class="arguments sparse-table">
+              <thead>
+                <tr>
+                  <th>Prefix</th>
+                  <th>Modifiers</th>
+                  <th>Consumed</th>
+                </tr>
+              </thead>
+              <tbody>
+                <tr>
+                  <td>
+                    <ol>
+                      <li>Number of pages</li>
+                    </ol>
+                  </td>
+                  <td class="not-applicable">∅</td>
+                  <td class="not-applicable">∅</td>
+                </tr>
+              </tbody>
+            </table>
+          </dd>
+        </dl>
+
+      </section>
+
+      <section id="~tilde_tilde">
+
+        <h1 class="breadcrumbs">
+          <a href="#~tilde_tilde" class="anchor">⚓</a>
+          <a href="../">FORMAT reference</a>
+          <span class="separator"> » </span>
+          <a href="#">Format directives</a>
+          <span class="separator"> » </span>
+          <span class="related-group">
+            <a href="#~percent_newline">~%</a>
+            <a href="#~ampersand_fresh-line">~&amp;</a>
+            <a href="#~vertical-line_page">~|</a>
+            <a class="here">~~ (Tilde)</a>
+          </span>
+        </h1>
+
+        <nav class="hanging-menu">
+          <ul>
+            <li><a href="http://www.lispworks.com/documentation/HyperSpec/Body/22_cae.htm">CLHS</a></li>
+            <li><a href="../clhs-summary/#~tilde_tilde">Summary</a></li>
+          </ul>
+        </nav>
+
+        <dl>
+          <dt>Arguments</dt>
+          <dd>
+            <table class="arguments sparse-table">
+              <thead>
+                <tr>
+                  <th>Prefix</th>
+                  <th>Modifiers</th>
+                  <th>Consumed</th>
+                </tr>
+              </thead>
+              <tbody>
+                <tr>
+                  <td>
+                    <ol>
+                      <li>Number of tildes</li>
+                    </ol>
+                  </td>
+                  <td class="not-applicable">∅</td>
+                  <td class="not-applicable">∅</td>
+                </tr>
+              </tbody>
+            </table>
+          </dd>
+        </dl>
+
+      </section>
+
+      <section id="~R_radix">
+
+        <nav class="section-nav">
+
+          <nav class="ancestors-nav">
+
+            <nav class="navbox">
+              <h1>
+                <a class="here">~R (Radix)</a>
+                <span class="here-indicator-left"> </span>
+                <span class="here-indicator-right"> </span>
+              </h1>
+              <ul>
+                <li><a href="#~R-without-prefix-arguments"><em>Without</em> prefix args</a></li>
+                <li><a href="#~R-with-prefix-arguments"><em>With</em> prefix args</a></li>
+              </ul>
+            </nav>
+
+            <a href="#radix-aliases" class="navbox-next">⬇</a>
+
+          </nav>
+
+        </nav>
+
+        <h1 class="breadcrumbs">
+          <a href="#~R_radix" class="anchor">⚓</a>
+          <a href="../">FORMAT reference</a>
+          <span class="separator"> » </span>
+          <a href="#">Format directives</a>
+          <span class="separator"> » </span>
+          <a class="here">~R (Radix)</a>
+        </h1>
+
+        <nav class="hanging-menu">
+          <ul>
+            <li><a href="http://www.lispworks.com/documentation/HyperSpec/Body/22_cba.htm">CLHS</a></li>
+            <li><a href="../clhs-summary/#~R_radix">Summary</a></li>
+          </ul>
+        </nav>
+
+        <p>The <code>~R</code> format directive supports two quite different sets of functionality <em>depending on if any prefix arguments are supplied to it or not</em>. This selection mechanism is unique to <code>~R</code>.</p>
+
+        <section id="~R-without-prefix-arguments">
+
+          <h1 class="breadcrumbs">
+            <a href="#~R-without-prefix-arguments" class="anchor">⚓</a>
+            <a href="../">FORMAT reference</a>
+            <span class="separator"> » </span>
+            <a href="#">Format directives</a>
+            <span class="separator"> » </span>
+            <a href="#~R_radix">~R (Radix)</a>
+            <span class="separator"> » </span>
+            <a class="here"><em>Without</em> prefix args</a>
+          </h1>
+
+          <nav class="hanging-menu">
+            <ul>
+              <li><a href="http://www.lispworks.com/documentation/HyperSpec/Body/22_cba.htm">CLHS</a></li>
+              <li><a href="../clhs-summary/#~R_radix">Summary</a></li>
+            </ul>
+          </nav>
+
+          <dl>
+            <dt>Arguments</dt>
+            <dd>
+              <table class="arguments sparse-table">
+                <thead>
+                  <tr>
+                    <th>Prefix</th>
+                    <th colspan="2">Modifiers (select)</th>
+                    <th>Consumed</th>
+                  </tr>
+                </thead>
+                <tbody>
+                  <tr>
+                    <td rowspan="4" class="not-applicable">∅</td>
+                    <th class="modifiers">∅</th>
+                    <td>Cardinal</td>
+                    <td rowspan="4">
+                      <ol>
+                        <li>integer</li>
+                      </ol>
+                    </td>
+                  </tr>
+                  <tr>
+                    <th class="modifiers">:</th>
+                    <td>Ordinal</td>
+                  </tr>
+                  <tr>
+                    <th class="modifiers">@</th>
+                    <td>Roman</td>
+                  </tr>
+                  <tr>
+                    <th class="modifiers">:@</th>
+                    <td>Old roman</td>
+                  </tr>
+                </tbody>
+              </table>
+            </dd>
+            <dt>Bound printer variables</dt>
+            <dd>
+              <table class="bound-printer-variables">
+                <tbody>
+                  <tr>
+                    <th>*print-base*</th>
+                  </tr>
+                  <tr>
+                    <td>10</td>
+                  </tr>
+                </tbody>
+              </table>
+            </dd>
+          </dl>
+
+        </section>
+
+        <section id="~R-with-prefix-arguments">
+
+          <h1 class="breadcrumbs">
+            <a href="#~R-with-prefix-arguments" class="anchor">⚓</a>
+            <a href="../">FORMAT reference</a>
+            <span class="separator"> » </span>
+            <a href="#">Format directives</a>
+            <span class="separator"> » </span>
+            <a href="#~R_radix">~R (Radix)</a>
+            <span class="separator"> » </span>
+            <a class="here"><em>With</em> prefix args</a>
+          </h1>
+
+          <nav class="hanging-menu">
+            <ul>
+              <li><a href="http://www.lispworks.com/documentation/HyperSpec/Body/22_cba.htm">CLHS</a></li>
+              <li><a href="../clhs-summary/#~R_radix">Summary</a></li>
+            </ul>
+          </nav>
+
+          <dl>
+            <dt>Arguments</dt>
+            <dd>
+              <table class="arguments sparse-table">
+                <thead>
+                  <tr>
+                    <th>Prefix</th>
+                    <th colspan="2">Modifiers (Combine)</th>
+                    <th>Consumed</th>
+                  </tr>
+                </thead>
+                <tbody>
+                  <tr>
+                    <td rowspan="2">
+                      <ol>
+                        <li>radix</li>
+                        <li>mincol</li>
+                        <li>padchar</li>
+                        <li>comma-char</li>
+                        <li>comma-interval</li>
+                      </ol>
+                    </td>
+                    <th class="modifiers">:</th>
+                    <td>Commas</td>
+                    <td rowspan="2">
+                      <ol>
+                        <li>number</li>
+                      </ol>
+                    </td>
+                  </tr>
+                  <tr>
+                    <th class="modifiers">@</th>
+                    <td>Sign</td>
+                  </tr>
+                </tbody>
+              </table>
+            </dd>
+            <dt>Bound printer variables</dt>
+            <dd>
+              <table class="bound-printer-variables">
+                <tbody>
+                  <tr>
+                    <th>*print-escape*</th>
+                    <th>*print-radix*</th>
+                    <th>*print-base*</th>
+                    <th>*print-readably*</th>
+                  </tr>
+                  <tr>
+                    <td>false</td>
+                    <td>false</td>
+                    <td><var>radix</var></td>
+                    <td>false</td>
+                  </tr>
+                </tbody>
+              </table>
+            </dd>
+          </dl>
+
+        </section>
+
+        <nav class="end-of-section-indicator">
+          <a href="#~R_radix">
+            "~R (Radix)" end.
+          </a>
+        </nav>
+
+      </section>
+
+      <section id="radix-aliases">
+
+        <h1 class="breadcrumbs">
+          <a href="#radix-aliases" class="anchor">⚓</a>
+          <a href="../">FORMAT reference</a>
+          <span class="separator"> » </span>
+          <a href="#">Format directives</a>
+          <span class="separator"> » </span>
+          <span class="related-group">
+            <a class="here">~D</a>
+            <a class="here">~B</a>
+            <a class="here">~O</a>
+            <a class="here">~X</a>
+          </span>
+          <small>("Radix aliases")</small>
+        </h1>
+
+        <nav class="hanging-menu">
+          <ul>
+            <li><span class="details"><a href="http://www.lispworks.com/documentation/HyperSpec/Body/22_cbb.htm">~D</a> <a href="http://www.lispworks.com/documentation/HyperSpec/Body/22_cbc.htm">~B</a> <a href="http://www.lispworks.com/documentation/HyperSpec/Body/22_cbd.htm">~O</a> <a href="http://www.lispworks.com/documentation/HyperSpec/Body/22_cbe.htm">~X</a> </span><a href="http://www.lispworks.com/documentation/HyperSpec/Body/22_cb.htm">CLHS</a></li>
+            <li><span class="details"><a href="../clhs-summary/#~D_decimal">~D</a> <a href="../clhs-summary/#~B_binary">~B</a> <a href="../clhs-summary/#~O_octal">~O</a> <a href="../clhs-summary/#~X_hexadecimal">~X</a> </span><a href="../clhs-summary/#~D_decimal">Summary</a></li>
+          </ul>
+        </nav>
+
+        <dl>
+          <dt>Arguments</dt>
+          <dd>
+            <p><em>Same as <a href="#~R-with-prefix-arguments">~R with prefix args</a>,<br />but without the initial <var>radix</var> prefix argument.</em></p>
+          </dd>
+          <dt>Bound printer variables</dt>
+          <dd>
+            <p><em>Same as <a href="#~R-with-prefix-arguments">~R with prefix args</a>.</em><br /><var>*print-base*</var> is bound to the corresponding <var>radix</var> indicated in the table below.</p>
+          </dd>
+        </dl>
+
+        <p>These format directives are merely convenient aliases for invoking the <code><a href="#~R-with-prefix-arguments">~R</a></code> format directive with a specific radix argument, followed by any prefix arguments and modifiers given to the alias, which are forwarded directly to <code><a href="#~R-with-prefix-arguments">~R</a></code>.</p>
+
+        <table id="radix-aliases-table">
+          <thead>
+            <tr>
+              <th>Alias for <a href="#~R-with-prefix-arguments">~R</a></th>
+              <th>Name</th>
+              <th>Radix passed to <a href="#~R-with-prefix-arguments">~R</a></th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <th>~D</th>
+              <td>Decimal</td>
+              <td>10</td>
+            </tr>
+            <tr>
+              <th>~B</th>
+              <td>Binary</td>
+              <td>2</td>
+            </tr>
+            <tr>
+              <th>~O</th>
+              <td>Octal</td>
+              <td>8</td>
+            </tr>
+            <tr>
+              <th>~X</th>
+              <td>Hexadecimal</td>
+              <td>16</td>
+            </tr>
+          </tbody>
+        </table>
+
+      </section>
+
+      <section id="floating-point">
+
+        <nav class="section-nav">
+
+          <nav class="ancestors-nav">
+
+            <nav class="navbox">
+              <h1>
+                <a class="here">Floating Point</a>
+                <span class="here-indicator-left"> </span>
+                <span class="here-indicator-right"> </span>
+              </h1>
+              <ul>
+                <li><a href="#~F_fixed-format-floating-point">~F (Fixed-Format)</a></li>
+                <li><a href="#~E_exponential-floating-point">~E (Exponential)</a></li>
+                <li><a href="#~G_general-floating-point">~G (General)</a></li>
+                <li><a href="#~dollar_monetary-floating-point">~$ (Monetary)</a></li>
+              </ul>
+            </nav>
+
+            <a href="#~A_aesthetic" class="navbox-next">⬇</a>
+
+          </nav>
+
+        </nav>
+
+        <h1 class="breadcrumbs">
+          <a href="#floating-point" class="anchor">⚓</a>
+          <a href="../">FORMAT reference</a>
+          <span class="separator"> » </span>
+          <a href="#">Format directives</a>
+          <span class="separator"> » </span>
+          <a class="here">Floating Point</a>
+        </h1>
+
+        <nav class="hanging-menu">
+          <ul>
+            <li><a href="http://www.lispworks.com/documentation/HyperSpec/Body/22_cc.htm">CLHS</a></li>
+            <li><a href="../clhs-summary/#clhs-22.3.3-format-floating-point-printers">Summary</a></li>
+          </ul>
+        </nav>
+
+        <p>To be written.</p>
+
+        <section id="~F_fixed-format-floating-point">
+
+          <h1 class="breadcrumbs">
+            <a href="#~F_fixed-format-floating-point" class="anchor">⚓</a>
+            <a href="../">FORMAT reference</a>
+            <span class="separator"> » </span>
+            <a href="#">Format directives</a>
+            <span class="separator"> » </span>
+            <a href="#floating-point">Floating Point</a>
+            <span class="separator"> » </span>
+            <a class="here">~F (Fixed-Format)</a>
+          </h1>
+
+          <nav class="hanging-menu">
+            <ul>
+              <li><a href="http://www.lispworks.com/documentation/HyperSpec/Body/22_cca.htm">CLHS</a></li>
+              <li><a href="../clhs-summary/#~F_fixed-format-floating-point">Summary</a></li>
+            </ul>
+          </nav>
+
+          <dl>
+            <dt>Arguments</dt>
+            <dd>
+              <table class="arguments sparse-table">
+                <thead>
+                  <tr>
+                    <th>Prefix</th>
+                    <th colspan="2">Modifiers</th>
+                    <th>Consumed</th>
+                  </tr>
+                </thead>
+                <tbody>
+                  <tr>
+                    <td>
+                      <ol>
+                        <li>width</li>
+                        <li>decimals</li>
+                        <li>scale</li>
+                        <li>overflow</li>
+                        <li>pad</li>
+                      </ol>
+                    </td>
+                    <th class="modifiers">@</th>
+                    <td>Sign</td>
+                    <td>
+                      <ol>
+                        <li>number</li>
+                      </ol>
+                    </td>
+                  </tr>
+                </tbody>
+              </table>
+            </dd>
+            <dt>Bound printer variables</dt>
+            <dd>
+              <table class="bound-printer-variables">
+                <tbody>
+                  <tr>
+                    <th>*print-escape*</th>
+                    <th>*print-readably*</th>
+                  </tr>
+                  <tr>
+                    <td>false</td>
+                    <td>false</td>
+                  </tr>
+                </tbody>
+              </table>
+            </dd>
+          </dl>
+
+        </section>
+
+        <section id="~E_exponential-floating-point">
+
+          <h1 class="breadcrumbs">
+            <a href="#~E_exponential-floating-point" class="anchor">⚓</a>
+            <a href="../">FORMAT reference</a>
+            <span class="separator"> » </span>
+            <a href="#">Format directives</a>
+            <span class="separator"> » </span>
+            <a href="#floating-point">Floating Point</a>
+            <span class="separator"> » </span>
+            <a class="here">~E (Exponential)</a>
+          </h1>
+
+          <nav class="hanging-menu">
+            <ul>
+              <li><a href="http://www.lispworks.com/documentation/HyperSpec/Body/22_ccb.htm">CLHS</a></li>
+              <li><a href="../clhs-summary/#~E_exponential-floating-point">Summary</a></li>
+            </ul>
+          </nav>
+
+          <dl>
+            <dt>Arguments</dt>
+            <dd>
+              <em>Same as ~G:</em>
+              <table class="arguments sparse-table">
+                <thead>
+                  <tr>
+                    <th>Prefix</th>
+                    <th colspan="2">Modifiers</th>
+                    <th>Consumed</th>
+                  </tr>
+                </thead>
+                <tbody>
+                  <tr>
+                    <td>
+                      <ol>
+                        <li>width</li>
+                        <li>decimals</li>
+                        <li>exponent-width</li>
+                        <li>scale</li>
+                        <li>overflow</li>
+                        <li>pad</li>
+                        <li>exponent-char</li>
+                      </ol>
+                    </td>
+                    <th class="modifiers">@</th>
+                    <td>Sign</td>
+                    <td>
+                      <ol>
+                        <li>number</li>
+                      </ol>
+                    </td>
+                  </tr>
+                </tbody>
+              </table>
+            </dd>
+            <dt>Bound printer variables</dt>
+            <dd>
+              <table class="bound-printer-variables">
+                <tbody>
+                  <tr>
+                    <th>*print-escape*</th>
+                    <th>*print-readably*</th>
+                  </tr>
+                  <tr>
+                    <td>false</td>
+                    <td>false</td>
+                  </tr>
+                </tbody>
+              </table>
+            </dd>
+          </dl>
+
+        </section>
+
+        <section id="~G_general-floating-point">
+
+          <h1 class="breadcrumbs">
+            <a href="#~G_general-floating-point" class="anchor">⚓</a>
+            <a href="../">FORMAT reference</a>
+            <span class="separator"> » </span>
+            <a href="#">Format directives</a>
+            <span class="separator"> » </span>
+            <a href="#floating-point">Floating Point</a>
+            <span class="separator"> » </span>
+            <a class="here">~G (General)</a>
+          </h1>
+
+          <nav class="hanging-menu">
+            <ul>
+              <li><a href="http://www.lispworks.com/documentation/HyperSpec/Body/22_ccc.htm">CLHS</a></li>
+              <li><a href="../clhs-summary/#~G_general-floating-point">Summary</a></li>
+            </ul>
+          </nav>
+
+          <dl>
+            <dt>Arguments</dt>
+            <dd>
+              <em>Same as ~E:</em>
+              <table class="arguments sparse-table">
+                <thead>
+                  <tr>
+                    <th>Prefix</th>
+                    <th colspan="2">Modifiers</th>
+                    <th>Consumed</th>
+                  </tr>
+                </thead>
+                <tbody>
+                  <tr>
+                    <td>
+                      <ol>
+                        <li>width</li>
+                        <li>decimals</li>
+                        <li>exponent-width</li>
+                        <li>scale</li>
+                        <li>overflow</li>
+                        <li>pad</li>
+                        <li>exponent-char</li>
+                      </ol>
+                    </td>
+                    <th class="modifiers">@</th>
+                    <td>Sign</td>
+                    <td>
+                      <ol>
+                        <li>number</li>
+                      </ol>
+                    </td>
+                  </tr>
+                </tbody>
+              </table>
+            </dd>
+            <dt>Bound printer variables</dt>
+            <dd>
+              <table class="bound-printer-variables">
+                <tbody>
+                  <tr>
+                    <th>*print-escape*</th>
+                    <th>*print-readably*</th>
+                  </tr>
+                  <tr>
+                    <td>false</td>
+                    <td>false</td>
+                  </tr>
+                </tbody>
+              </table>
+            </dd>
+          </dl>
+
+        </section>
+
+        <section id="~dollar_monetary-floating-point">
+
+          <h1 class="breadcrumbs">
+            <a href="#~dollar_monetary-floating-point" class="anchor">⚓</a>
+            <a href="../">FORMAT reference</a>
+            <span class="separator"> » </span>
+            <a href="#">Format directives</a>
+            <span class="separator"> » </span>
+            <a href="#floating-point">Floating Point</a>
+            <span class="separator"> » </span>
+            <a class="here">~$ (Monetary)</a>
+          </h1>
+
+          <nav class="hanging-menu">
+            <ul>
+              <li><a href="http://www.lispworks.com/documentation/HyperSpec/Body/22_ccd.htm">CLHS</a></li>
+              <li><a href="../clhs-summary/#~dollar_monetary-floating-point">Summary</a></li>
+            </ul>
+          </nav>
+
+          <dl>
+            <dt>Arguments</dt>
+            <dd>
+              <table class="arguments sparse-table">
+                <thead>
+                  <tr>
+                    <th>Prefix</th>
+                    <th colspan="2">Modifiers (Combine)</th>
+                    <th>Consumed</th>
+                  </tr>
+                </thead>
+                <tbody>
+                  <tr>
+                    <td rowspan="2">
+                      <ol>
+                        <li>decimals</li>
+                        <li>min-units</li>
+                        <li>min-width</li>
+                        <li>padchar</li>
+                      </ol>
+                    </td>
+                    <th class="modifiers">:</th>
+                    <td>Sign before padding</td>
+                    <td rowspan="2">
+                      <ol>
+                        <li>number</li>
+                      </ol>
+                    </td>
+                  </tr>
+                  <tr>
+                    <th class="modifiers">@</th>
+                    <td>Sign</td>
+                  </tr>
+                </tbody>
+              </table>
+            </dd>
+            <dt>Bound printer variables</dt>
+            <dd>
+              <table class="bound-printer-variables">
+                <tbody>
+                  <tr>
+                    <th>*print-escape*</th>
+                    <th>*print-readably*</th>
+                  </tr>
+                  <tr>
+                    <td>false</td>
+                    <td>false</td>
+                  </tr>
+                </tbody>
+              </table>
+            </dd>
+          </dl>
+
+        </section>
+
+        <nav class="end-of-section-indicator">
+          <a href="#floating-point">
+            "Floating Point" end.
+          </a>
+        </nav>
+
+      </section>
+
+      <section id="~A_aesthetic">
+
+        <h1 class="breadcrumbs">
+          <a href="#~A_aesthetic" class="anchor">⚓</a>
+          <a href="../">FORMAT reference</a>
+          <span class="separator"> » </span>
+          <a href="#">Format directives</a>
+          <span class="separator"> » </span>
+          <a class="here">~A (Aesthetic)</a>
+        </h1>
+
+        <nav class="hanging-menu">
+          <ul>
+            <li><a href="http://www.lispworks.com/documentation/HyperSpec/Body/22_cda.htm">CLHS</a></li>
+            <li><a href="../clhs-summary/#~A_aesthetic">Summary</a></li>
+          </ul>
+        </nav>
+
+        <dl>
+          <dt>Arguments</dt>
+          <dd>
+            <table class="arguments sparse-table">
+              <thead>
+                <tr>
+                  <th>Prefix</th>
+                  <th colspan="2">Modifiers (Combine)</th>
+                  <th>Consumed</th>
+                </tr>
+              </thead>
+              <tbody>
+                <tr>
+                  <td rowspan="2">
+                    <em>Same as <code>~S</code> and <code>~&lt;~&gt;</code>:</em>
+                    <ol>
+                      <li>mincol</li>
+                      <li>colinc</li>
+                      <li>minpad</li>
+                      <li>padchar</li>
+                    </ol>
+                  </td>
+                  <th class="modifiers">:</th>
+                  <td>Paren</td>
+                  <td rowspan="2">
+                    <ol>
+                      <li>object</li>
+                    </ol>
+                  </td>
+                </tr>
+                <tr>
+                  <th class="modifiers">@</th>
+                  <td>Padleft</td>
+                </tr>
+              </tbody>
+            </table>
+          </dd>
+          <dt>Bound printer variables</dt>
+          <dd>
+            <table class="bound-printer-variables">
+              <tbody>
+                <tr>
+                  <th>*print-escape*</th>
+                  <th>*print-readably*</th>
+                </tr>
+                <tr>
+                  <td>false</td>
+                  <td>false</td>
+                </tr>
+              </tbody>
+            </table>
+          </dd>
+        </dl>
+
+      </section>
+
+      <section id="~S_standard">
+
+        <h1 class="breadcrumbs">
+          <a href="#~S_standard" class="anchor">⚓</a>
+          <a href="../">FORMAT reference</a>
+          <span class="separator"> » </span>
+          <a href="#">Format directives</a>
+          <span class="separator"> » </span>
+          <a class="here">~S (Standard)</a>
+        </h1>
+
+        <nav class="hanging-menu">
+          <ul>
+            <li><a href="http://www.lispworks.com/documentation/HyperSpec/Body/22_cdb.htm">CLHS</a></li>
+            <li><a href="../clhs-summary/#~S_standard">Summary</a></li>
+          </ul>
+        </nav>
+
+        <dl>
+          <dt>Arguments</dt>
+          <dd>
+            <table class="arguments sparse-table">
+              <thead>
+                <tr>
+                  <th>Prefix</th>
+                  <th colspan="2">Modifiers (Combine)</th>
+                  <th>Consumed</th>
+                </tr>
+              </thead>
+              <tbody>
+                <tr>
+                  <td rowspan="2">
+                    <em>Same as <code>~A</code> and <code>~&lt;~&gt;</code>:</em>
+                    <ol>
+                      <li>mincol</li>
+                      <li>colinc</li>
+                      <li>minpad</li>
+                      <li>padchar</li>
+                    </ol>
+                  </td>
+                  <th class="modifiers">:</th>
+                  <td>Paren</td>
+                  <td rowspan="2">
+                    <ol>
+                      <li>object</li>
+                    </ol>
+                  </td>
+                </tr>
+                <tr>
+                  <th class="modifiers">@</th>
+                  <td>Padleft</td>
+                </tr>
+              </tbody>
+            </table>
+          </dd>
+          <dt>Bound printer variables</dt>
+          <dd>
+            <table class="bound-printer-variables">
+              <tbody>
+                <tr>
+                  <th>*print-escape*</th>
+                </tr>
+                <tr>
+                  <td>t</td>
+                </tr>
+              </tbody>
+            </table>
+          </dd>
+        </dl>
+
+      </section>
+
+      <section id="~W_write">
+
+        <h1 class="breadcrumbs">
+          <a href="#~W_write" class="anchor">⚓</a>
+          <a href="../">FORMAT reference</a>
+          <span class="separator"> » </span>
+          <a href="#">Format directives</a>
+          <span class="separator"> » </span>
+          <a class="here">~W (Write)</a>
+        </h1>
+
+        <nav class="hanging-menu">
+          <ul>
+            <li><a href="http://www.lispworks.com/documentation/HyperSpec/Body/22_cdc.htm">CLHS</a></li>
+            <li><a href="../clhs-summary/#~W_write">Summary</a></li>
+          </ul>
+        </nav>
+
+        <dl>
+          <dt>Arguments</dt>
+          <dd>
+            <table class="arguments sparse-table">
+              <thead>
+                <tr>
+                  <th>Prefix</th>
+                  <th colspan="2">Modifiers (Combine)</th>
+                  <th>Consumed</th>
+                </tr>
+              </thead>
+              <tbody>
+                <tr>
+                  <td rowspan="2" class="not-applicable">∅</td>
+                  <th class="modifiers">:</th>
+                  <td>Pretty</td>
+                  <td rowspan="2">
+                    <ol>
+                      <li>object</li>
+                    </ol>
+                  </td>
+                </tr>
+                <tr>
+                  <th class="modifiers">@</th>
+                  <td>Fully</td>
+                </tr>
+              </tbody>
+            </table>
+          </dd>
+          <dt>Bound printer variables</dt>
+          <dd>
+            <table class="bound-printer-variables">
+              <tbody>
+                <tr>
+                  <th rowspan="2">if :</th>
+                  <th colspan="2">*print-pretty*</th>
+                </tr>
+                <tr>
+                  <td colspan="2">true</td>
+                </tr>
+              </tbody>
+              <tbody>
+                <tr>
+                  <th rowspan="2">if @</th>
+                  <th>*print-level*</th>
+                  <th>*print-length*</th>
+                </tr>
+                <tr>
+                  <td>nil</td>
+                  <td>nil</td>
+                </tr>
+              </tbody>
+            </table>
+          </dd>
+        </dl>
+
+      </section>
+
+      <section id="~underscore_conditional-newline">
+
+        <h1 class="breadcrumbs">
+          <a href="#~underscore_conditional-newline" class="anchor">⚓</a>
+          <a href="../">FORMAT reference</a>
+          <span class="separator"> » </span>
+          <a href="#">Format directives</a>
+          <span class="separator"> » </span>
+          <a class="here">~_ (Conditional Newline)</a>
+        </h1>
+
+        <nav class="hanging-menu">
+          <ul>
+            <li><a href="http://www.lispworks.com/documentation/HyperSpec/Body/22_cea.htm">CLHS</a></li>
+            <li><a href="../clhs-summary/#~underscore_conditional-newline">Summary</a></li>
+          </ul>
+        </nav>
+
+        <dl>
+          <dt>Arguments</dt>
+          <dd>
+            <table class="arguments sparse-table">
+              <thead>
+                <tr>
+                  <th>Prefix</th>
+                  <th colspan="2">Modifiers (select)</th>
+                  <th>Consumed</th>
+                </tr>
+              </thead>
+              <tbody>
+                <tr>
+                  <td rowspan="4" class="not-applicable">∅</td>
+                  <th class="modifiers">∅</th>
+                  <td>Linear</td>
+                  <td rowspan="4" class="not-applicable">∅</td>
+                </tr>
+                <tr>
+                  <th class="modifiers">:</th>
+                  <td>Fill</td>
+                </tr>
+                <tr>
+                  <th class="modifiers">@</th>
+                  <td>Miser</td>
+                </tr>
+                <tr>
+                  <th class="modifiers">:@</th>
+                  <td>Mandatory</td>
+                </tr>
+              </tbody>
+            </table>
+          </dd>
+        </dl>
+
+      </section>
+
+      <section id="~less-than_logical-block">
+
+        <h1 class="breadcrumbs">
+          <a href="#~less-than_logical-block" class="anchor">⚓</a>
+          <a href="../">FORMAT reference</a>
+          <span class="separator"> » </span>
+          <a href="#">Format directives</a>
+          <span class="separator"> » </span>
+          ~&lt;
+          <span class="related-group">
+            <a class="here">~:&gt; (Logical Block)</a>
+            <a href="#~less-than_justification">~&gt;</a>
+          </span>
+        </h1>
+
+        <nav class="hanging-menu">
+          <ul>
+            <li><a href="http://www.lispworks.com/documentation/HyperSpec/Body/22_ceb.htm">CLHS</a></li>
+            <li><a href="../clhs-summary/#~less-than_logical-block">Summary</a></li>
+          </ul>
+        </nav>
+
+        <dl>
+          <dt>Arguments</dt>
+          <dd>
+            <table class="arguments sparse-table">
+              <thead>
+                <tr>
+                  <th>Prefix</th>
+                  <th colspan="2">Modifiers (Combine)</th>
+                  <th>Consumed</th>
+                </tr>
+              </thead>
+              <tbody>
+                <tr>
+                  <td rowspan="2" class="not-applicable">∅</td>
+                  <th class="modifiers">:</th>
+                  <td>Paren</td>
+                  <td rowspan="2">
+                    <ol>
+                      <li>(&amp;rest) object</li>
+                    </ol>
+                  </td>
+                </tr>
+                <tr>
+                  <th class="modifiers">@</th>
+                  <td>&amp;rest</td>
+                </tr>
+              </tbody>
+            </table>
+          </dd>
+        </dl>
+
+      </section>
+
+      <section id="~I_indent">
+
+        <h1 class="breadcrumbs">
+          <a href="#~I_indent" class="anchor">⚓</a>
+          <a href="../">FORMAT reference</a>
+          <span class="separator"> » </span>
+          <a href="#">Format directives</a>
+          <span class="separator"> » </span>
+          <a class="here">~I (Indent)</a>
+        </h1>
+
+        <nav class="hanging-menu">
+          <ul>
+            <li><a href="http://www.lispworks.com/documentation/HyperSpec/Body/22_cec.htm">CLHS</a></li>
+            <li><a href="../clhs-summary/#~I_indent">Summary</a></li>
+          </ul>
+        </nav>
+
+        <dl>
+          <dt>Arguments</dt>
+          <dd>
+            <table class="arguments sparse-table">
+              <thead>
+                <tr>
+                  <th>Prefix</th>
+                  <th colspan="2">Modifiers (select)</th>
+                  <th>Consumed</th>
+                </tr>
+              </thead>
+              <tbody>
+                <tr>
+                  <td rowspan="2">
+                    <ol>
+                      <li>n</li>
+                    </ol>
+                  </td>
+                  <th class="modifiers">∅</th>
+                  <td>:block</td>
+                  <td rowspan="2" class="not-applicable">∅</td>
+                </tr>
+                <tr>
+                  <th class="modifiers">:</th>
+                  <td>:current</td>
+                </tr>
+              </tbody>
+            </table>
+          </dd>
+        </dl>
+
+      </section>
+
+      <section id="~slash_call-function">
+
+        <h1 class="breadcrumbs">
+          <a href="#~slash_call-function" class="anchor">⚓</a>
+          <a href="../">FORMAT reference</a>
+          <span class="separator"> » </span>
+          <a href="#">Format directives</a>
+          <span class="separator"> » </span>
+          <a class="here">~/<var>name</var>/ (Call Function)</a>
+        </h1>
+
+        <nav class="hanging-menu">
+          <ul>
+            <li><a href="http://www.lispworks.com/documentation/HyperSpec/Body/22_ced.htm">CLHS</a></li>
+            <li><a href="../clhs-summary/#~slash_call-function">Summary</a></li>
+          </ul>
+        </nav>
+
+        <dl>
+          <dt>Arguments</dt>
+          <dd>
+            <p>All prefix arguments and modifiers<br />along with one consumed argument<br />are forwarded to the function.</p>
+          </dd>
+        </dl>
+
+      </section>
+
+      <section id="~T_tabulate">
+
+        <h1 class="breadcrumbs">
+          <a href="#~T_tabulate" class="anchor">⚓</a>
+          <a href="../">FORMAT reference</a>
+          <span class="separator"> » </span>
+          <a href="#">Format directives</a>
+          <span class="separator"> » </span>
+          <a class="here">~T (Tabulate)</a>
+        </h1>
+
+        <nav class="hanging-menu">
+          <ul>
+            <li><a href="http://www.lispworks.com/documentation/HyperSpec/Body/22_cfa.htm">CLHS</a></li>
+            <li><a href="../clhs-summary/#~T_tabulate">Summary</a></li>
+          </ul>
+        </nav>
+
+        <dl>
+          <dt>Arguments</dt>
+          <dd>
+            <table class="arguments sparse-table">
+              <thead>
+                <tr>
+                  <th>Prefix</th>
+                  <th colspan="2">Modifiers (select)</th>
+                  <th>Consumed</th>
+                </tr>
+              </thead>
+              <tbody>
+                <tr>
+                  <td rowspan="4">
+                    <ol>
+                      <li>colnum</li>
+                      <li>colinc</li>
+                    </ol>
+                  </td>
+                  <th class="modifiers">∅</th>
+                  <td>:line</td>
+                  <td rowspan="4" class="not-applicable">∅</td>
+                </tr>
+                <tr>
+                  <th class="modifiers">:</th>
+                  <td>:section</td>
+                </tr>
+                <tr>
+                  <th class="modifiers">@</th>
+                  <td>:line-relative</td>
+                </tr>
+                <tr>
+                  <th class="modifiers">:@</th>
+                  <td>:section-relative</td>
+                </tr>
+              </tbody>
+            </table>
+          </dd>
+        </dl>
+
+      </section>
+
+      <section id="~less-than_justification">
+
+        <h1 class="breadcrumbs">
+          <a href="#~less-than_justification" class="anchor">⚓</a>
+          <a href="../">FORMAT reference</a>
+          <span class="separator"> » </span>
+          <a href="#">Format directives</a>
+          <span class="separator"> » </span>
+          ~&lt;
+          <span class="related-group">
+            <a href="#~less-than_logical-block">~:&gt;</a>
+            <a class="here">~&gt; (Justification)</a>
+          </span>
+        </h1>
+
+        <nav class="hanging-menu">
+          <ul>
+            <li><a href="http://www.lispworks.com/documentation/HyperSpec/Body/22_cfb.htm">CLHS</a></li>
+            <li><a href="../clhs-summary/#~less-than_justification">Summary</a></li>
+          </ul>
+        </nav>
+
+        <dl>
+          <dt>Arguments</dt>
+          <dd>
+            <table class="arguments sparse-table">
+              <thead>
+                <tr>
+                  <th>Prefix</th>
+                  <th colspan="2">Modifiers (Combine)</th>
+                  <th>Consumed</th>
+                </tr>
+              </thead>
+              <tbody>
+                <tr>
+                  <td rowspan="2">
+                    <em>Same as ~A and ~S:</em>
+                    <ol>
+                      <li>mincol</li>
+                      <li>colinc</li>
+                      <li>minpad</li>
+                      <li>padchar</li>
+                    </ol>
+                  </td>
+                  <th class="modifiers">:</th>
+                  <td>Padleft</td>
+                  <td rowspan="2">
+                    <ol>
+                      <li>n</li>
+                    </ol>
+                  </td>
+                </tr>
+                <tr>
+                  <th class="modifiers">@</th>
+                  <td>Padright</td>
+                </tr>
+              </tbody>
+            </table>
+          </dd>
+        </dl>
+
+      </section>
+
+      <section id="~star_go-to">
+
+        <h1 class="breadcrumbs">
+          <a href="#~star_go-to" class="anchor">⚓</a>
+          <a href="../">FORMAT reference</a>
+          <span class="separator"> » </span>
+          <a href="#">Format directives</a>
+          <span class="separator"> » </span>
+          <a class="here">~* (Go-To)</a>
+        </h1>
+
+        <nav class="hanging-menu">
+          <ul>
+            <li><a href="http://www.lispworks.com/documentation/HyperSpec/Body/22_cga.htm">CLHS</a></li>
+            <li><a href="../clhs-summary/#~star_go-to">Summary</a></li>
+          </ul>
+        </nav>
+
+        <dl>
+          <dt>Arguments</dt>
+          <dd>
+            <table class="arguments sparse-table">
+              <thead>
+                <tr>
+                  <th>Prefix</th>
+                  <th colspan="2">Modifiers (select)</th>
+                  <th>Consumed</th>
+                </tr>
+              </thead>
+              <tbody>
+                <tr>
+                  <td rowspan="3">
+                    <ol>
+                      <li>n</li>
+                    </ol>
+                  </td>
+                  <th class="modifiers">∅</th>
+                  <td>Forward</td>
+                  <td rowspan="3">
+                    !
+                  </td>
+                </tr>
+                <tr>
+                  <th class="modifiers">:</th>
+                  <td>Back</td>
+                </tr>
+                <tr>
+                  <th class="modifiers">@</th>
+                  <td>Absolute</td>
+                </tr>
+              </tbody>
+            </table>
+          </dd>
+        </dl>
+
+      </section>
+
+      <section id="~left-square-bracket_conditional-expression">
+
+        <nav class="section-nav">
+
+          <nav class="ancestors-nav">
+
+            <nav class="navbox">
+              <h1>
+                <a class="here"><abbr title="Conditional">Cond</abbr> Expression</a>
+                <span class="here-indicator-left"> </span>
+                <span class="here-indicator-right"> </span>
+              </h1>
+              <ul>
+                <li><a href="#~left-square-bracket_case">~[ <span class="name">(case)</span></a></li>
+                <li><a href="#~left-square-bracket_if">~:[ <span class="name">(if)</span></a></li>
+                <li><a href="#~left-square-bracket_when">~@[ <span class="name">(when)</span></a></li>
+              </ul>
+            </nav>
+
+            <a href="#~left-curly-bracket_iteration" class="navbox-next">⬇</a>
+
+          </nav>
+
+        </nav>
+
+        <h1 class="breadcrumbs">
+          <a href="#~left-square-bracket_conditional-expression" class="anchor">⚓</a>
+          <a href="../">FORMAT reference</a>
+          <span class="separator"> » </span>
+          <a href="#">Format directives</a>
+          <span class="separator"> » </span>
+          <a class="here">~[~] (Conditional Expression)</a>
+        </h1>
+
+        <nav class="hanging-menu">
+          <ul>
+            <li><a href="http://www.lispworks.com/documentation/HyperSpec/Body/22_cgb.htm">CLHS</a></li>
+            <li><a href="../clhs-summary/#~left-square-bracket_case">Summary</a></li>
+          </ul>
+        </nav>
+
+        <section id="~left-square-bracket_case">
+
+          <h1 class="breadcrumbs">
+            <a href="#~left-square-bracket_case" class="anchor">⚓</a>
+            <a href="../">FORMAT reference</a>
+            <span class="separator"> » </span>
+            <a href="#">Format directives</a>
+            <span class="separator"> » </span>
+            <a href="#~left-square-bracket_conditional-expression">~[~]</a>
+            <span class="separator"> » </span>
+            <a class="here">~[ (case)</a>
+          </h1>
+
+          <nav class="hanging-menu">
+            <ul>
+              <li><a href="http://www.lispworks.com/documentation/HyperSpec/Body/22_cgb.htm">CLHS</a></li>
+              <li><a href="../clhs-summary/#~left-square-bracket_case">Summary</a></li>
+            </ul>
+          </nav>
+
+          <dl>
+            <dt>Arguments</dt>
+            <dd>
+              <table class="arguments sparse-table">
+                <thead>
+                  <tr>
+                    <th>Prefix</th>
+                    <th colspan="2">Modifiers</th>
+                    <th>Consumed</th>
+                  </tr>
+                </thead>
+                <tbody>
+                  <tr>
+                    <td rowspan="2">
+                      <ol>
+                        <li>index (zero-based)</li>
+                      </ol>
+                    </td>
+                    <th class="modifiers">:</th>
+                    <td>✘</td>
+                    <td rowspan="2">
+                      <ol>
+                        <li>index (unless prefix)</li>
+                      </ol>
+                    </td>
+                  </tr>
+                  <tr>
+                    <th class="modifiers">@</th>
+                    <td>✘</td>
+                  </tr>
+                </tbody>
+              </table>
+            </dd>
+          </dl>
+
+        </section>
+
+        <section id="~left-square-bracket_if">
+
+          <h1 class="breadcrumbs">
+            <a href="#~left-square-bracket_if" class="anchor">⚓</a>
+            <a href="../">FORMAT reference</a>
+            <span class="separator"> » </span>
+            <a href="#">Format directives</a>
+            <span class="separator"> » </span>
+            <a href="#~left-square-bracket_conditional-expression">~[~]</a>
+            <span class="separator"> » </span>
+            <a class="here">~:[ (if)</a>
+          </h1>
+
+          <nav class="hanging-menu">
+            <ul>
+              <li><a href="http://www.lispworks.com/documentation/HyperSpec/Body/22_cgb.htm">CLHS</a></li>
+              <li><a href="../clhs-summary/#~left-square-bracket_if">Summary</a></li>
+            </ul>
+          </nav>
+
+          <dl>
+            <dt>Arguments</dt>
+            <dd>
+              <table class="arguments sparse-table">
+                <thead>
+                  <tr>
+                    <th>Prefix</th>
+                    <th colspan="2">Modifiers</th>
+                    <th>Consumed</th>
+                  </tr>
+                </thead>
+                <tbody>
+                  <tr>
+                    <td rowspan="2" class="not-applicable">∅</td>
+                    <th class="modifiers">:</th>
+                    <td>✔</td>
+                    <td rowspan="2">
+                      <ol>
+                        <li>generalized-boolean</li>
+                      </ol>
+                    </td>
+                  </tr>
+                  <tr>
+                    <th class="modifiers">@</th>
+                    <td>✘</td>
+                  </tr>
+                </tbody>
+              </table>
+            </dd>
+          </dl>
+
+        </section>
+
+        <section id="~left-square-bracket_when">
+
+          <h1 class="breadcrumbs">
+            <a href="#~left-square-bracket_when" class="anchor">⚓</a>
+            <a href="../">FORMAT reference</a>
+            <span class="separator"> » </span>
+            <a href="#">Format directives</a>
+            <span class="separator"> » </span>
+            <a href="#~left-square-bracket_conditional-expression">~[~]</a>
+            <span class="separator"> » </span>
+            <a class="here">~@[ (when)</a>
+          </h1>
+
+          <nav class="hanging-menu">
+            <ul>
+              <li><a href="http://www.lispworks.com/documentation/HyperSpec/Body/22_cgb.htm">CLHS</a></li>
+              <li><a href="../clhs-summary/#~left-square-bracket_when">Summary</a></li>
+            </ul>
+          </nav>
+
+          <dl>
+            <dt>Arguments</dt>
+            <dd>
+              <table class="arguments sparse-table">
+                <thead>
+                  <tr>
+                    <th>Prefix</th>
+                    <th colspan="2">Modifiers</th>
+                    <th>Consumed</th>
+                  </tr>
+                </thead>
+                <tbody>
+                  <tr>
+                    <td rowspan="2" class="not-applicable">∅</td>
+                    <th class="modifiers">:</th>
+                    <td>✔</td>
+                    <td rowspan="2">
+                      <ol>
+                        <li>generalized-boolean<br />(Not consumed if true.)</li>
+                      </ol>
+                    </td>
+                  </tr>
+                  <tr>
+                    <th class="modifiers">@</th>
+                    <td>✔</td>
+                  </tr>
+                </tbody>
+              </table>
+            </dd>
+          </dl>
+
+        </section>
+
+      </section>
+
+      <section id="~left-curly-bracket_iteration">
+
+        <h1 class="breadcrumbs">
+          <a href="#~left-curly-bracket_iteration" class="anchor">⚓</a>
+          <a href="../">FORMAT reference</a>
+          <span class="separator"> » </span>
+          <a href="#">Format directives</a>
+          <span class="separator"> » </span>
+          <a class="here">~{~} (Iteration)</a>
+        </h1>
+
+        <nav class="hanging-menu">
+          <ul>
+            <li><a href="http://www.lispworks.com/documentation/HyperSpec/Body/22_cgd.htm">CLHS</a></li>
+            <li><a href="../clhs-summary/#~left-curly-bracket_iteration">Summary</a></li>
+          </ul>
+        </nav>
+
+        <dl>
+          <dt>Arguments</dt>
+          <dd>
+            <table class="arguments sparse-table">
+              <thead>
+                <tr>
+                  <th>Prefix</th>
+                  <th colspan="2">Modifiers (Combine)</th>
+                  <th>Consumed</th>
+                </tr>
+              </thead>
+              <tbody>
+                <tr>
+                  <td rowspan="2">
+                    <ol>
+                      <li>max-reps</li>
+                    </ol>
+                  </td>
+                  <th class="modifiers">:</th>
+                  <td>Sublists</td>
+                  <td rowspan="2">
+                    <ol>
+                      <li>(&amp;rest) list</li>
+                    </ol>
+                  </td>
+                </tr>
+                <tr>
+                  <th class="modifiers">@</th>
+                  <td>&amp;rest</td>
+                </tr>
+              </tbody>
+            </table>
+          </dd>
+        </dl>
+
+      </section>
+
+      <section id="~question-mark_recursive-processing">
+
+        <h1 class="breadcrumbs">
+          <a href="#~question-mark_recursive-processing" class="anchor">⚓</a>
+          <a href="../">FORMAT reference</a>
+          <span class="separator"> » </span>
+          <a href="#">Format directives</a>
+          <span class="separator"> » </span>
+          <a class="here">~? (Recursive Processing)</a>
+        </h1>
+
+        <nav class="hanging-menu">
+          <ul>
+            <li><a href="http://www.lispworks.com/documentation/HyperSpec/Body/22_cgf.htm">CLHS</a></li>
+            <li><a href="../clhs-summary/#~question-mark_recursive-processing">Summary</a></li>
+          </ul>
+        </nav>
+
+        <dl>
+          <dt>Arguments</dt>
+          <dd>
+            <table class="arguments sparse-table">
+              <thead>
+                <tr>
+                  <th>Prefix</th>
+                  <th colspan="2">Modifier</th>
+                  <th>Consumed</th>
+                </tr>
+              </thead>
+              <tbody>
+                <tr>
+                  <td class="not-applicable">∅</td>
+                  <th class="modifiers">@</th>
+                  <td>&amp;rest</td>
+                  <td>
+                    <ol>
+                      <li>control-string</li>
+                      <li>(&amp;rest) arguments</li>
+                    </ol>
+                  </td>
+                </tr>
+              </tbody>
+            </table>
+          </dd>
+        </dl>
+
+      </section>
+
+      <section id="~left-parenthesis_case-conversion">
+
+        <h1 class="breadcrumbs">
+          <a href="#~left-parenthesis_case-conversion" class="anchor">⚓</a>
+          <a href="../">FORMAT reference</a>
+          <span class="separator"> » </span>
+          <a href="#">Format directives</a>
+          <span class="separator"> » </span>
+          <a class="here">~(~) (Case Conversion)</a>
+        </h1>
+
+        <nav class="hanging-menu">
+          <ul>
+            <li><a href="http://www.lispworks.com/documentation/HyperSpec/Body/22_cha.htm">CLHS</a></li>
+            <li><a href="../clhs-summary/#~left-parenthesis_case-conversion">Summary</a></li>
+          </ul>
+        </nav>
+
+        <dl>
+          <dt>Arguments</dt>
+          <dd>
+            <table class="arguments sparse-table">
+              <thead>
+                <tr>
+                  <th>Prefix</th>
+                  <th colspan="2">Modifiers (select)</th>
+                  <th>Consumed</th>
+                </tr>
+              </thead>
+              <tbody>
+                <tr>
+                  <td rowspan="4" class="not-applicable">∅</td>
+                  <th class="modifiers">∅</th>
+                  <td>string-downcase</td>
+                  <td rowspan="4">
+                    <p><em>args consumed by interior</em></p>
+                  </td>
+                </tr>
+                <tr>
+                  <th class="modifiers">:</th>
+                  <td>string-capitalize</td>
+                </tr>
+                <tr>
+                  <th class="modifiers">@</th>
+                  <td>Capitalize downcase</td>
+                </tr>
+                <tr>
+                  <th class="modifiers">:@</th>
+                  <td>string-upcase</td>
+                </tr>
+              </tbody>
+            </table>
+          </dd>
+        </dl>
+
+      </section>
+
+      <section id="~P_plural">
+
+        <h1 class="breadcrumbs">
+          <a href="#~P_plural" class="anchor">⚓</a>
+          <a href="../">FORMAT reference</a>
+          <span class="separator"> » </span>
+          <a href="#">Format directives</a>
+          <span class="separator"> » </span>
+          <a class="here">~P (Plural)</a>
+        </h1>
+
+        <nav class="hanging-menu">
+          <ul>
+            <li><a href="http://www.lispworks.com/documentation/HyperSpec/Body/22_chc.htm">CLHS</a></li>
+            <li><a href="../clhs-summary/#~P_plural">Summary</a></li>
+          </ul>
+        </nav>
+
+        <dl>
+          <dt>Arguments</dt>
+          <dd>
+            <table class="arguments sparse-table">
+              <thead>
+                <tr>
+                  <th>Prefix</th>
+                  <th colspan="2">Modifiers (Combine)</th>
+                  <th>Consumed</th>
+                </tr>
+              </thead>
+              <tbody>
+                <tr>
+                  <td rowspan="2" class="not-applicable">∅</td>
+                  <th class="modifiers">:</th>
+                  <td>Previous</td>
+                  <td rowspan="2">
+                    <ol>
+                      <li>quantity (unless :)</li>
+                    </ol>
+                  </td>
+                </tr>
+                <tr>
+                  <th class="modifiers">@</th>
+                  <td>"...ies"</td>
+                </tr>
+              </tbody>
+            </table>
+          </dd>
+        </dl>
+
+      </section>
 
     </main>
 
