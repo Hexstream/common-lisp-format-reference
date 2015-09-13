@@ -128,8 +128,3 @@
 #subsections-summary-table th.escape-number-prefix-args {
     text-align: right;
 }
-
-#subsections-summary-table tr th:first-child a[href^="../format-directives/"] {
-    color: black;
-    cursor: default;
-}

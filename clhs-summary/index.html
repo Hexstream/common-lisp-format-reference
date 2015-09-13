@@ -121,7 +121,7 @@
 
     </nav>
 
-    <p id="last-updated"><span>This page was last updated on </span><time datetime="2014-09-22">22 september 2014</time><span>.</span></p>
+    <p id="last-updated"><span>This page was last updated on </span><time datetime="2015-09-12">12 september 2015</time><span>.</span></p>
 
     <main>
 
@@ -132,6 +132,10 @@
           Includes a big table summarizing all format directive arguments.
         </p>
       </header>
+
+      <div class="notice good-news">
+        <p><b>✔</b> The <a href="#subsections-summary-table">table</a> is fairly complete and detailed, for a summary.</p>
+      </div>
 
       <section id="clhs-22.3-formatted-output">
 
@@ -173,9 +177,11 @@
           </ul>
         </nav>
 
-        <p>This is already fairly complete and detailed, for a summary. One notable todo would be to dynamically show some examples and other information such as bound printer variables (as appropriate) on the left when hovering over the cells of the table.</p>
+        <p>The following table is already fairly complete and detailed, for a summary. One notable todo would be to dynamically show some examples and other information such as bound printer variables (as appropriate) on the left when hovering over the cells of the table.</p>
 
-        <p>The first column ("~") will link to the full reference when it's done, for now it's just a stub (I've made good progress on it on a private branch but it's not yet detailed enough to be useful).</p>
+        <p>The first column ("~") links to the &quot;full reference&quot; part of this article (on another page), which for now is lacking quite a bit of depth.</p>
+
+        <p id="not-standalone"><strong>Note that the following table is not intended to be &quot;standalone&quot;. You'll need to complete with other sources of information such as the <a href="http://www.lispworks.com/documentation/HyperSpec/Body/22_c.htm">CLHS</a> and practice a lot to make sense of it.</strong> <br />Most of this table's (insane) complexity directly reflects the accidental (due to packing a complex language into a string) yet unavoidable (you can't ignore it) complexity of FORMAT itself. <br /><em>If you hate this table, then you hate FORMAT</em>. (This isn't idle ranting either, I'm writing this article as a stepping stone to writing my own lispy FORMAT replacement. <a href="https://github.com/Hexstream/lispy-format/blob/master/hairiest.lisp#L31">See a complex example.</a>)</p>
 
         <table id="subsections-summary-table" class="sparse-table">
           <thead>
