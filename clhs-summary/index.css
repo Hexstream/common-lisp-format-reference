@@ -7,11 +7,6 @@
     text-decoration: none;
 }
 
-#subsections-summary-table .horizontal-grouping-header {
-    text-align: left;
-    padding-left: 2.8em;
-}
-
 #subsections-summary-table > tbody > tr > th.horizontal-grouping-header a {
     font-size: x-large;
 }
@@ -28,7 +23,7 @@
     background: linen;
 }
 
-#subsections-summary-table th:first-child {
+#subsections-summary-table .\~, #subsections-summary-table .horizontal-grouping-header {
     text-align: center;
     letter-spacing: 0.1em;
     padding: 0.4em;
