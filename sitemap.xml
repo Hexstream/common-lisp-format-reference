@@ -3,19 +3,19 @@
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
 
   <url>
-    <loc>http://www.hexstreamsoft.com/articles/common-lisp-format-reference/</loc>
+    <loc>https://www.hexstreamsoft.com/articles/common-lisp-format-reference/</loc>
   </url>
 
   <url>
-    <loc>http://www.hexstreamsoft.com/articles/common-lisp-format-reference/clhs-summary/</loc>
+    <loc>https://www.hexstreamsoft.com/articles/common-lisp-format-reference/clhs-summary/</loc>
   </url>
 
   <url>
-    <loc>http://www.hexstreamsoft.com/articles/common-lisp-format-reference/format-directives/</loc>
+    <loc>https://www.hexstreamsoft.com/articles/common-lisp-format-reference/format-directives/</loc>
   </url>
 
   <url>
-    <loc>http://www.hexstreamsoft.com/articles/common-lisp-format-reference/cross-reference/</loc>
+    <loc>https://www.hexstreamsoft.com/articles/common-lisp-format-reference/cross-reference/</loc>
   </url>
 
 </urlset>
