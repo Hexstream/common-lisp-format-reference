@@ -1,11 +1,3 @@
-.navbox li.multiple {
-    display: table;
-}
-
-.navbox li.multiple a {
-    display: table-cell;
-}
-
 .navbox span.name {
     position: absolute;
     right: 0.5em;
