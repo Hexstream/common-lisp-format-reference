@@ -1,26 +1,24 @@
-.navbox span.name {
-    position: absolute;
-    right: 0.5em;
-    font-size: smaller;
-    font-style: italic;
+.breadcrumbs-bar .breadcrumbs .here {
+    white-space: nowrap;
 }
 
-.navbox .inlined-nodes {
-    display: table;
-    margin-left: auto;
-    margin-right: auto;
+.breadcrumbs-bar .breadcrumbs .here.long {
+    white-space: initial;
 }
 
-#conditional-expression-submenu .inlined-nodes {
-    display: block;
-    margin-left: 1.5em;
-    margin-right: 1.5em;
-    background-image: url("left-parenthese.svg"), url("right-parenthese.svg");
-    background-repeat: no-repeat;
-    background-position: 0% 50%, 100% 50%;
-    background-size: 100% 100%, 100% 100%;
-    padding: 0.2em 1.1em;
+table thead th {
+    white-space: initial;
 }
+
+dd {
+    margin-left: 0;
+}
+
+table ol {
+    margin-left: 1em;
+    margin-right: 0;
+}
+
 
 main dl dt {
     text-align: center;

@@ -8,8 +8,9 @@
     <link rel="author" href="https://www.hexstreamsoft.com/introduction.html" />
     <link rel="license" href="https://www.hexstreamsoft.com/UNLICENSE" />
     <meta name="description" content="" />
+    <meta name="viewport" content="width=device-width, initial-scale=1"/>
     <title>format directives | Common Lisp FORMAT reference | Articles | HexstreamSoft</title>
-    <link href="https://www.hexstreamsoft.com/css/global.css" rel="stylesheet" type="text/css" />
+    <link href="../css/global.css" rel="stylesheet" type="text/css" />
     <link href="index.css" rel="stylesheet" type="text/css" />
     <script src="https://global.hexstreamsoft.com/scripts/global.js"></script>
     <script src="https://www.hexstreamsoft.com/scripts/global.js"></script>
@@ -18,20 +19,16 @@
 
   <body>
 
-    <nav id="site-nav">
+    <nav id="top-nav">
 
-      <nav class="breadcrumbs-and-extras">
+      <div class="main">
 
-        <nav class="breadcrumbs">
+        <div class="breadcrumbs">
           <a href="https://www.hexstreamsoft.com/">HexstreamSoft</a>
-          <span class="separator"> » </span>
-          <a href="https://www.hexstreamsoft.com/articles/">Articles</a>
-          <span class="separator"> » </span>
-          <a href="../">FORMAT reference</a>
-          <span class="separator"> » </span>
-          <a class="here">Format directives</a>
-          <div class="float-clear"></div>
-        </nav>
+          <span class="crumb"><span class="s"> » </span><a href="https://www.hexstreamsoft.com/articles/">Articles</a></span>
+          <span class="crumb"><span class="s"> » </span><a href="../">FORMAT reference</a></span>
+          <span class="crumb"><span class="s"> » </span><a class="here">Format directives</a></span>
+        </div>
 
         <nav id="meta-nav">
           <a href="https://www.hexstreamsoft.com/articles/common-lisp-format-reference/format-directives/">
@@ -42,140 +39,44 @@
           </a>
         </nav>
 
+      </div>
+
+      <p id="last-updated"><span>This page was last updated on </span><time datetime="2015-09-12">12 september 2015</time><span>.</span></p>
+
+    </nav>
+
+    <nav class="ancestors-nav">
+
+      <nav class="tabs contains-title">
+        <h1><a href="../">Common Lisp FORMAT reference</a></h1>
+        <ul>
+          <li><a href="../clhs-summary/">CLHS summary</a></li>
+          <li><a class="here">Format directives</a></li>
+          <li><a href="../cross-reference/">Cross-reference</a></li>
+        </ul>
       </nav>
 
-      <nav class="ancestors-nav">
+      <nav class="tabs contains-title">
+        <h1><a href="https://www.hexstreamsoft.com/articles/">Articles</a></h1>
+      </nav>
 
-        <div class="level-separator"></div>
-
-        <nav class="navbox">
-          <h1>
-            <a class="here">Format directives</a>
-            <span class="here-indicator-left"> </span>
-            <span class="here-indicator-right"> </span>
-          </h1>
-          <ul>
-            <li><a href="#~C_character">~C <span class="name">(Character)</span></a></li>
-            <li class="siblings">
-              <a href="#~percent_newline">~%</a><a href="#~ampersand_fresh-line">~&amp;</a><a href="#~vertical-line_page">~|</a><a href="#~tilde_tilde">~~</a>
-            </li>
-          </ul>
-          <ul>
-            <li><a href="#~R_radix">~R <span class="name">(Radix)</span></a></li>
-            <li><a href="#radix-aliases">~D ~B ~O ~X</a></li>
-          </ul>
-          <ul>
-            <li>
-              <a href="#floating-point" class="inlining-node">Floating Point</a>
-              <ul class="inlined-nodes">
-                <li class="siblings"><a href="#~F_fixed-format-floating-point">~F</a><a href="#~E_exponential-floating-point">~E</a><a href="#~G_general-floating-point">~G</a><a href="#~dollar_monetary-floating-point">~$</a></li>
-              </ul>
-            </li>
-          </ul>
-          <ul>
-            <li><a href="#~A_aesthetic">~A <span class="name">(Aesthetic)</span></a></li>
-            <li><a href="#~S_standard">~S <span class="name">(Standard)</span></a></li>
-            <li><a href="#~W_write">~W <span class="name">(Write)</span></a></li>
-          </ul>
-          <ul>
-            <li><a href="#~underscore_conditional-newline">~_ <span class="name">(<abbr title="Conditional">Cond</abbr> Newline)</span></a></li>
-            <li>
-              <a href="#~less-than_logical-block" class="inlining-node">~&lt;~:&gt; <span class="name">(Logical <abbr title="Block">Blk</abbr>)</span></a>
-              <ul class="inlined-nodes">
-                <li class="siblings"><a href="#~semicolon_~less-than_logical-block">~;</a><a href="#~semicolon_~less-than_logical-block">~@;</a><a href="#~caret_~less-than_logical-block">~^</a></li>
-              </ul>
-            </li>
-            <li><a href="#~I_indent">~I <span class="name">(Indent)</span></a></li>
-            <li><a href="#~slash_call-function">~/<var>name</var>/ <span class="name">(Call <abbr title="Function">Func</abbr>)</span></a></li>
-          </ul>
-          <ul>
-            <li><a href="#~T_tabulate">~T <span class="name">(Tabulate)</span></a></li>
-            <li>
-              <a href="#~less-than_justification" class="inlining-node">~&lt;~&gt; <span class="name">(Justification)</span></a>
-              <ul class="inlined-nodes">
-                <li class="siblings"><a href="#~semicolon_~less-than_justification">~;</a><a href="#~semicolon_~less-than_justification">~:;</a><a href="#~caret_~less-than_justification">~^</a></li>
-              </ul>
-            </li>
-          </ul>
-          <ul>
-            <li><a href="#~star_go-to">~* <span class="name">(Go-To)</span></a></li>
-            <li id="conditional-expression-submenu">
-              <a href="#~left-square-bracket_conditional-expression" class="inlining-node">~[~] <span class="name">(<abbr title="Conditional">Cond</abbr> <abbr title="Expression">Expr</abbr>)</span></a>
-              <ul class="inlined-nodes">
-                <li><a href="#~left-square-bracket_case">~[~] <span class="name">(case)</span></a></li>
-                <li><a href="#~left-square-bracket_case">~:[~] <span class="name">(if)</span></a></li>
-                <li><a href="#~left-square-bracket_case">~@[~] <span class="name">(when)</span></a></li>
-              </ul>
-            </li>
-            <li>
-              <a href="#~left-curly-bracket_iteration" class="inlining-node">~{~} <span class="name">(Iteration)</span></a>
-              <ul class="inlined-nodes">
-                <li><a href="#~caret_~less-than_iteration">~^</a></li>
-              </ul>
-            </li>
-            <li><a href="#~question-mark_recursive-processing">~? <span class="name">(Recursive <abbr title="Processing">Proc</abbr>)</span></a></li>
-          </ul>
-          <ul>
-            <li><a href="#~left-parenthesis_case-conversion">~(~) <span class="name">(Case <abbr title="conversion">Conv</abbr>)</span></a></li>
-            <li><a href="#~P_plural">~P <span class="name">(Plural)</span></a></li>
-          </ul>
-        </nav>
-
-        <div class="level-separator"></div>
-
-        <nav class="navbox">
-          <h1>
-            <a href="../">FORMAT reference</a>
-          </h1>
-          <ul>
-            <li><a href="../clhs-summary/">CLHS summary</a></li>
-            <li>
-              <a class="here">
-                Format directives
-                <span class="here-indicator-left"> </span>
-                <span class="here-indicator-right"> </span>
-              </a>
-            </li>
-            <li><a href="../cross-reference/">Cross-reference</a></li>
-          </ul>
-        </nav>
-
-        <div class="level-separator"></div>
-
-        <nav class="navbox empty" id="articles_navbox">
-          <h1>
-            <a href="https://www.hexstreamsoft.com/articles/">Articles</a>
-          </h1>
-        </nav>
-
-        <div class="level-separator"></div>
-
-        <nav class="navbox" id="main_navbox">
-          <h1>
-            <a href="https://www.hexstreamsoft.com/">HexstreamSoft</a>
-          </h1>
+      <nav class="tabs contains-title contains-groups">
+        <h1><a href="https://www.hexstreamsoft.com/">HexstreamSoft</a></h1>
+        <div>
           <ul>
             <li><a href="https://www.hexstreamsoft.com/libraries/">Libraries</a></li>
-            <li>
-              <a href="https://www.hexstreamsoft.com/articles/">
-                Articles
-                <span class="here-indicator-left"> </span>
-                <span class="here-indicator-right"> </span>
-              </a>
-            </li>
+            <li><a href="https://www.hexstreamsoft.com/articles/" class="ancestor">Articles</a></li>
             <li><a href="https://www.hexstreamsoft.com/accounts/">Accounts</a></li>
             <li><a href="https://www.hexstreamsoft.com/resources/">Resources</a></li>
           </ul>
           <ul>
             <li><a href="https://worknotes.hexstreamsoft.com/">Worknotes</a></li>
+            <li><a href="https://status-quo.hexstreamsoft.com/">Status quo</a></li>
           </ul>
-        </nav>
-
+        </div>
       </nav>
 
     </nav>
-
-    <p id="last-updated"><span>This page was last updated on </span><time datetime="2015-09-12">12 september 2015</time><span>.</span></p>
 
     <main>
 
@@ -196,55 +97,153 @@
         </div>
       </div>
 
+      <nav class="tab-groups">
+
+        <nav class="tabs">
+          <ul>
+            <li><a href="#~C_character">~C (Character)</a></li>
+            <li><a href="#~percent_newline">~% (Newline)</a></li>
+            <li><a href="#~ampersand_fresh-line">~&amp; (Fresh Line)</a></li>
+            <li><a href="#~vertical-line_page">~| (Page)</a></li>
+            <li><a href="#~tilde_tilde">~~ (Tilde)</a></li>
+          </ul>
+        </nav>
+
+        <nav class="tabs">
+          <ul>
+            <li><a href="#~R_radix">~R <span class="name">(Radix)</span></a></li>
+            <li><a href="#radix-aliases">~D (Decimal), ~B (Binary), ~O (Octal), ~X (Hexadecimal)</a></li>
+          </ul>
+        </nav>
+
+        <nav class="tabs contains-title">
+          <h1><a href="#floating-point">Floating Point</a></h1>
+          <ul>
+            <li><a href="#~F_fixed-format-floating-point">~F (Fixed-Format)</a></li>
+            <li><a href="#~E_exponential-floating-point">~E (Exponential)</a></li>
+            <li><a href="#~G_general-floating-point">~G (General)</a></li>
+            <li><a href="#~dollar_monetary-floating-point">~$ (Monetary)</a></li>
+          </ul>
+        </nav>
+
+        <nav class="tabs">
+          <ul>
+            <li><a href="#~A_aesthetic">~A (Aesthetic)</a></li>
+            <li><a href="#~S_standard">~S (Standard)</a></li>
+            <li><a href="#~W_write">~W (Write)</a></li>
+          </ul>
+        </nav>
+
+        <nav class="tabs">
+          <ul>
+            <li><a href="#~underscore_conditional-newline">~_ (Conditional Newline)</a></li>
+            <li class="contains-children">
+              <a href="#~less-than_logical-block">~&lt;~:&gt; (Logical Block)</a>
+              <ul>
+                <li><a href="#~semicolon_~less-than_logical-block">~;</a></li>
+                <li><a href="#~semicolon_~less-than_logical-block">~@;</a></li>
+                <li><a href="#~caret_~less-than_logical-block">~^</a></li>
+              </ul>
+            </li>
+            <li><a href="#~I_indent">~I (Indent)</a></li>
+            <li><a href="#~slash_call-function">~/<var>name</var>/ (Call Function)</a></li>
+          </ul>
+        </nav>
+
+        <nav class="tabs">
+          <ul>
+            <li><a href="#~T_tabulate">~T (Tabulate)</a></li>
+            <li class="contains-children">
+              <a href="#~less-than_justification">~&lt;~&gt; (Justification)</a>
+              <ul>
+                <li><a href="#~semicolon_~less-than_justification">~;</a></li>
+                <li><a href="#~semicolon_~less-than_justification">~:;</a></li>
+                <li><a href="#~caret_~less-than_justification">~^</a></li>
+              </ul>
+            </li>
+          </ul>
+        </nav>
+
+        <nav class="tabs">
+          <ul>
+            <li><a href="#~star_go-to">~* (Go-To)</a></li>
+            <li class="contains-children">
+              <a href="#~left-square-bracket_conditional-expression">~[~] (Conditional Expression)</a>
+              <ul>
+                <li><a href="#~left-square-bracket_case">~[~] (case)</a></li>
+                <li><a href="#~left-square-bracket_case">~:[~] (if)</a></li>
+                <li><a href="#~left-square-bracket_case">~@[~] (when)</a></li>
+              </ul>
+            </li>
+            <li class="contains-children">
+              <a href="#~left-curly-bracket_iteration">~{~} (Iteration)</a>
+              <ul>
+                <li><a href="#~caret_~less-than_iteration">~^</a></li>
+              </ul>
+            </li>
+            <li><a href="#~question-mark_recursive-processing">~? (Recursive Processing)</a></li>
+          </ul>
+        </nav>
+
+        <nav class="tabs">
+          <ul>
+            <li><a href="#~left-parenthesis_case-conversion">~(~) (Case Conversion)</a></li>
+            <li><a href="#~P_plural">~P (Plural)</a></li>
+          </ul>
+        </nav>
+
+      </nav>
+
       <section id="syntax">
 
-        <h1 class="breadcrumbs">
+        <h1 class="breadcrumbs-bar">
           <span class="section-relative-nav">
             <a href="#syntax" class="anchor">⚓</a>
           </span>
-          <a href="../">FORMAT reference</a>
-          <span class="separator"> » </span>
-          <a href="#">Format directives</a>
-          <span class="separator"> » </span>
-          <a class="here">Syntax</a>
+          <div class="breadcrumbs">
+            <a href="../">FORMAT reference</a>
+            <span class="crumb"><span class="s"> » </span><a href="#">Format directives</a></span>
+            <span class="crumb"><span class="s"> » </span><a class="here">Syntax</a></span>
+          </div>
         </h1>
 
         <p>Within a FORMAT string, each FORMAT directive invocation is introduced by a literal tilde ("~") and followed by prefix arguments (if any), modifiers (if any) and finally the command name.</p>
 
-        <table>
-          <thead>
-            <tr>
-              <th>Field name</th>
-              <th></th>
-              <th>Prefix arguments</th>
-              <th>Modifiers</th>
-              <th>Command name</th>
-            </tr>
-          </thead>
-          <tbody>
-            <tr>
-              <th>Acceptable input</th>
-              <td>~</td>
-              <td>Comma-separated arguments</td>
-              <td>: and/or @ or nothing</td>
-              <td>One case-insensitive letter</td>
-            </tr>
-          </tbody>
-        </table>
+        <div class="scroll">
+          <table>
+            <thead>
+              <tr>
+                <th>Field name</th>
+                <th></th>
+                <th>Prefix arguments</th>
+                <th>Modifiers</th>
+                <th>Command name</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr>
+                <th>Acceptable input</th>
+                <td>~</td>
+                <td>Comma-separated arguments</td>
+                <td>: and/or @ or nothing</td>
+                <td>One case-insensitive letter</td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
 
         <section id="special-selection-mechanisms">
 
-          <h1 class="breadcrumbs">
+          <h1 class="breadcrumbs-bar">
             <span class="section-relative-nav">
               <a href="#special-selection-mechanisms" class="anchor">⚓</a>
             </span>
-            <a href="../">FORMAT reference</a>
-            <span class="separator"> » </span>
-            <a href="#">Format directives</a>
-            <span class="separator"> » </span>
-            <a href="#syntax">Syntax</a>
-            <span class="separator"> » </span>
-            <a class="here">Special selection mechanisms</a>
+            <div class="breadcrumbs">
+              <a href="../">FORMAT reference</a>
+              <span class="crumb"><span class="s"> » </span><a href="#">Format directives</a></span>
+              <span class="crumb"><span class="s"> » </span><a href="#syntax">Syntax</a></span>
+              <span class="crumb"><span class="s"> » </span><a class="here">Special selection mechanisms</a></span>
+            </div>
           </h1>
 
           <p><small>("Special selection mechanism" is not a formal term, I just made it up for the purposes of this article.)</small></p>
@@ -257,15 +256,15 @@
 
       <section id="~C_character">
 
-        <h1 class="breadcrumbs">
+        <h1 class="breadcrumbs-bar">
           <span class="section-relative-nav">
             <a href="#~C_character" class="anchor">⚓</a>
           </span>
-          <a href="../">FORMAT reference</a>
-          <span class="separator"> » </span>
-          <a href="#">Format directives</a>
-          <span class="separator"> » </span>
-          <a class="here">~C (Character)</a>
+          <div class="breadcrumbs">
+            <a href="../">FORMAT reference</a>
+            <span class="crumb"><span class="s"> » </span><a href="#">Format directives</a></span>
+            <span class="crumb"><span class="s"> » </span><a class="here">~C (Character)</a></span>
+          </div>
         </h1>
 
         <nav class="hanging-menu">
@@ -277,7 +276,7 @@
 
         <dl>
           <dt>Arguments</dt>
-          <dd>
+          <dd class="scroll">
             <table class="arguments sparse">
               <thead>
                 <tr>
@@ -332,20 +331,23 @@
 
       <section id="~percent_newline">
 
-        <h1 class="breadcrumbs">
+        <h1 class="breadcrumbs-bar">
           <span class="section-relative-nav">
             <a href="#~percent_newline" class="anchor">⚓</a>
           </span>
-          <a href="../">FORMAT reference</a>
-          <span class="separator"> » </span>
-          <a href="#">Format directives</a>
-          <span class="separator"> » </span>
-          <span class="related-group">
-            <a class="here">~% (Newline)</a>
-            <a href="#~ampersand_fresh-line">~&amp;</a>
-            <a href="#~vertical-line_page">~|</a>
-            <a href="#~tilde_tilde">~~</a>
-          </span>
+          <div class="breadcrumbs">
+            <a href="../">FORMAT reference</a>
+            <span class="crumb"><span class="s"> » </span><a href="#">Format directives</a></span>
+            <span class="crumb">
+              <span class="s"> » </span>
+              <span class="related-group">
+                <a class="here">~% (Newline)</a>
+                <a href="#~ampersand_fresh-line">~&amp;</a>
+                <a href="#~vertical-line_page">~|</a>
+                <a href="#~tilde_tilde">~~</a>
+              </span>
+            </span>
+          </div>
         </h1>
 
         <nav class="hanging-menu">
@@ -385,20 +387,23 @@
 
       <section id="~ampersand_fresh-line">
 
-        <h1 class="breadcrumbs">
+        <h1 class="breadcrumbs-bar">
           <span class="section-relative-nav">
             <a href="#~ampersand_fresh-line" class="anchor">⚓</a>
           </span>
-          <a href="../">FORMAT reference</a>
-          <span class="separator"> » </span>
-          <a href="#">Format directives</a>
-          <span class="separator"> » </span>
-          <span class="related-group">
-            <a href="#~percent_newline">~%</a>
-            <a class="here">~&amp; (Fresh Line)</a>
-            <a href="#~vertical-line_page">~|</a>
-            <a href="#~tilde_tilde">~~</a>
-          </span>
+          <div class="breadcrumbs">
+            <a href="../">FORMAT reference</a>
+            <span class="crumb"><span class="s"> » </span><a href="#">Format directives</a></span>
+            <span class="crumb">
+              <span class="s"> » </span>
+              <span class="related-group">
+                <a href="#~percent_newline">~%</a>
+                <a class="here">~&amp; (Fresh Line)</a>
+                <a href="#~vertical-line_page">~|</a>
+                <a href="#~tilde_tilde">~~</a>
+              </span>
+            </span>
+          </div>
         </h1>
 
         <nav class="hanging-menu">
@@ -438,20 +443,23 @@
 
       <section id="~vertical-line_page">
 
-        <h1 class="breadcrumbs">
+        <h1 class="breadcrumbs-bar">
           <span class="section-relative-nav">
             <a href="#~vertical-line_page" class="anchor">⚓</a>
           </span>
-          <a href="../">FORMAT reference</a>
-          <span class="separator"> » </span>
-          <a href="#">Format directives</a>
-          <span class="separator"> » </span>
-          <span class="related-group">
-            <a href="#~percent_newline">~%</a>
-            <a href="#~ampersand_fresh-line">~&amp;</a>
-            <a class="here">~| (Page)</a>
-            <a href="#~tilde_tilde">~~</a>
-          </span>
+          <div class="breadcrumbs">
+            <a href="../">FORMAT reference</a>
+            <span class="crumb"><span class="s"> » </span><a href="#">Format directives</a></span>
+            <span class="crumb">
+              <span class="s"> » </span>
+              <span class="related-group">
+                <a href="#~percent_newline">~%</a>
+                <a href="#~ampersand_fresh-line">~&amp;</a>
+                <a class="here">~| (Page)</a>
+                <a href="#~tilde_tilde">~~</a>
+              </span>
+            </span>
+          </div>
         </h1>
 
         <nav class="hanging-menu">
@@ -491,20 +499,23 @@
 
       <section id="~tilde_tilde">
 
-        <h1 class="breadcrumbs">
+        <h1 class="breadcrumbs-bar">
           <span class="section-relative-nav">
             <a href="#~tilde_tilde" class="anchor">⚓</a>
           </span>
-          <a href="../">FORMAT reference</a>
-          <span class="separator"> » </span>
-          <a href="#">Format directives</a>
-          <span class="separator"> » </span>
-          <span class="related-group">
-            <a href="#~percent_newline">~%</a>
-            <a href="#~ampersand_fresh-line">~&amp;</a>
-            <a href="#~vertical-line_page">~|</a>
-            <a class="here">~~ (Tilde)</a>
-          </span>
+          <div class="breadcrumbs">
+            <a href="../">FORMAT reference</a>
+            <span class="crumb"><span class="s"> » </span><a href="#">Format directives</a></span>
+            <span class="crumb">
+              <span class="s"> » </span>
+              <span class="related-group">
+                <a href="#~percent_newline">~%</a>
+                <a href="#~ampersand_fresh-line">~&amp;</a>
+                <a href="#~vertical-line_page">~|</a>
+                <a class="here">~~ (Tilde)</a>
+              </span>
+            </span>
+          </div>
         </h1>
 
         <nav class="hanging-menu">
@@ -544,37 +555,15 @@
 
       <section id="~R_radix">
 
-        <nav class="section-nav">
-
-          <nav class="ancestors-nav">
-
-            <nav class="navbox">
-              <h1>
-                <a class="here">~R (Radix)</a>
-                <span class="here-indicator-left"> </span>
-                <span class="here-indicator-right"> </span>
-              </h1>
-              <ul>
-                <li><a href="#~R-without-prefix-arguments"><em>Without</em> prefix args</a></li>
-                <li><a href="#~R-with-prefix-arguments"><em>With</em> prefix args</a></li>
-              </ul>
-            </nav>
-
-            <a href="#radix-aliases" class="navbox-next">⬇</a>
-
-          </nav>
-
-        </nav>
-
-        <h1 class="breadcrumbs">
+        <h1 class="breadcrumbs-bar">
           <span class="section-relative-nav">
             <a href="#~R_radix" class="anchor">⚓</a>
           </span>
-          <a href="../">FORMAT reference</a>
-          <span class="separator"> » </span>
-          <a href="#">Format directives</a>
-          <span class="separator"> » </span>
-          <a class="here">~R (Radix)</a>
+          <div class="breadcrumbs">
+            <a href="../">FORMAT reference</a>
+            <span class="crumb"><span class="s"> » </span><a href="#">Format directives</a></span>
+            <span class="crumb"><span class="s"> » </span><a class="here">~R (Radix)</a></span>
+          </div>
         </h1>
 
         <nav class="hanging-menu">
@@ -584,21 +573,27 @@
           </ul>
         </nav>
 
+        <nav class="tabs">
+          <ul>
+            <li><a href="#~R-without-prefix-arguments"><em>Without</em> prefix args</a></li>
+            <li><a href="#~R-with-prefix-arguments"><em>With</em> prefix args</a></li>
+          </ul>
+        </nav>
+
         <p>The <code>~R</code> format directive supports two quite different sets of functionality <em>depending on if any prefix arguments are supplied to it or not</em>. This selection mechanism is unique to <code>~R</code>.</p>
 
         <section id="~R-without-prefix-arguments">
 
-          <h1 class="breadcrumbs">
+          <h1 class="breadcrumbs-bar">
             <span class="section-relative-nav">
               <a href="#~R-without-prefix-arguments" class="anchor">⚓</a>
             </span>
-            <a href="../">FORMAT reference</a>
-            <span class="separator"> » </span>
-            <a href="#">Format directives</a>
-            <span class="separator"> » </span>
-            <a href="#~R_radix">~R (Radix)</a>
-            <span class="separator"> » </span>
-            <a class="here"><em>Without</em> prefix args</a>
+            <div class="breadcrumbs">
+              <a href="../">FORMAT reference</a>
+              <span class="crumb"><span class="s"> » </span><a href="#">Format directives</a></span>
+              <span class="crumb"><span class="s"> » </span><a href="#~R_radix">~R (Radix)</a></span>
+              <span class="crumb"><span class="s"> » </span><a class="here"><em>Without</em> prefix args</a></span>
+            </div>
           </h1>
 
           <nav class="hanging-menu">
@@ -664,17 +659,16 @@
 
         <section id="~R-with-prefix-arguments">
 
-          <h1 class="breadcrumbs">
+          <h1 class="breadcrumbs-bar">
             <span class="section-relative-nav">
               <a href="#~R-with-prefix-arguments" class="anchor">⚓</a>
             </span>
-            <a href="../">FORMAT reference</a>
-            <span class="separator"> » </span>
-            <a href="#">Format directives</a>
-            <span class="separator"> » </span>
-            <a href="#~R_radix">~R (Radix)</a>
-            <span class="separator"> » </span>
-            <a class="here"><em>With</em> prefix args</a>
+            <div class="breadcrumbs">
+              <a href="../">FORMAT reference</a>
+              <span class="crumb"><span class="s"> » </span><a href="#">Format directives</a></span>
+              <span class="crumb"><span class="s"> » </span><a href="#~R_radix">~R (Radix)</a></span>
+              <span class="crumb"><span class="s"> » </span><a class="here"><em>With</em> prefix args</a></span>
+            </div>
           </h1>
 
           <nav class="hanging-menu">
@@ -686,7 +680,7 @@
 
           <dl>
             <dt>Arguments</dt>
-            <dd>
+            <dd class="scroll">
               <table class="arguments sparse">
                 <thead>
                   <tr>
@@ -722,7 +716,7 @@
               </table>
             </dd>
             <dt>Bound printer variables</dt>
-            <dd>
+            <dd class="scroll">
               <table class="bound-printer-variables">
                 <tbody>
                   <tr>
@@ -754,21 +748,15 @@
 
       <section id="radix-aliases">
 
-        <h1 class="breadcrumbs">
+        <h1 class="breadcrumbs-bar">
           <span class="section-relative-nav">
             <a href="#radix-aliases" class="anchor">⚓</a>
           </span>
-          <a href="../">FORMAT reference</a>
-          <span class="separator"> » </span>
-          <a href="#">Format directives</a>
-          <span class="separator"> » </span>
-          <span class="related-group">
-            <a class="here">~D</a>
-            <a class="here">~B</a>
-            <a class="here">~O</a>
-            <a class="here">~X</a>
-          </span>
-          <small>("Radix aliases")</small>
+          <div class="breadcrumbs">
+            <a href="../">FORMAT reference</a>
+            <span class="crumb"><span class="s"> » </span><a href="#">Format directives</a></span>
+            <span class="crumb"><span class="s"> » </span><a class="here long">~D&nbsp;(Decimal), ~B&nbsp;(Binary), ~O&nbsp;(Octal), ~X&nbsp;(Hexadecimal)</a></span>
+          </div>
         </h1>
 
         <nav class="hanging-menu">
@@ -791,75 +779,53 @@
 
         <p>These format directives are merely convenient aliases for invoking the <code><a href="#~R-with-prefix-arguments">~R</a></code> format directive with a specific radix argument, followed by any prefix arguments and modifiers given to the alias, which are forwarded directly to <code><a href="#~R-with-prefix-arguments">~R</a></code>.</p>
 
-        <table id="radix-aliases-table">
-          <thead>
-            <tr>
-              <th>Alias for <a href="#~R-with-prefix-arguments">~R</a></th>
-              <th>Name</th>
-              <th>Radix passed to <a href="#~R-with-prefix-arguments">~R</a></th>
-            </tr>
-          </thead>
-          <tbody>
-            <tr>
-              <th>~D</th>
-              <td>Decimal</td>
-              <td>10</td>
-            </tr>
-            <tr>
-              <th>~B</th>
-              <td>Binary</td>
-              <td>2</td>
-            </tr>
-            <tr>
-              <th>~O</th>
-              <td>Octal</td>
-              <td>8</td>
-            </tr>
-            <tr>
-              <th>~X</th>
-              <td>Hexadecimal</td>
-              <td>16</td>
-            </tr>
-          </tbody>
-        </table>
+        <div class="scroll">
+          <table id="radix-aliases-table">
+            <thead>
+              <tr>
+                <th>Alias for <a href="#~R-with-prefix-arguments">~R</a></th>
+                <th>Name</th>
+                <th>Radix passed to <a href="#~R-with-prefix-arguments">~R</a></th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr>
+                <th>~D</th>
+                <td>Decimal</td>
+                <td>10</td>
+              </tr>
+              <tr>
+                <th>~B</th>
+                <td>Binary</td>
+                <td>2</td>
+              </tr>
+              <tr>
+                <th>~O</th>
+                <td>Octal</td>
+                <td>8</td>
+              </tr>
+              <tr>
+                <th>~X</th>
+                <td>Hexadecimal</td>
+                <td>16</td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
 
       </section>
 
       <section id="floating-point">
 
-        <nav class="section-nav">
-
-          <nav class="ancestors-nav">
-
-            <nav class="navbox">
-              <h1>
-                <a class="here">Floating Point</a>
-                <span class="here-indicator-left"> </span>
-                <span class="here-indicator-right"> </span>
-              </h1>
-              <ul>
-                <li><a href="#~F_fixed-format-floating-point">~F (Fixed-Format)</a></li>
-                <li><a href="#~E_exponential-floating-point">~E (Exponential)</a></li>
-                <li><a href="#~G_general-floating-point">~G (General)</a></li>
-                <li><a href="#~dollar_monetary-floating-point">~$ (Monetary)</a></li>
-              </ul>
-            </nav>
-
-            <a href="#~A_aesthetic" class="navbox-next">⬇</a>
-
-          </nav>
-
-        </nav>
-
-        <h1 class="breadcrumbs">
+        <h1 class="breadcrumbs-bar">
           <span class="section-relative-nav">
             <a href="#floating-point" class="anchor">⚓</a>
           </span>
-          <a href="../">FORMAT reference</a>
-          <span class="separator"> » </span>
-          <a href="#">Format directives</a>
-          <span class="separator"> » </span>
-          <a class="here">Floating Point</a>
+          <div class="breadcrumbs">
+            <a href="../">FORMAT reference</a>
+            <span class="crumb"><span class="s"> » </span><a href="#">Format directives</a></span>
+            <span class="crumb"><span class="s"> » </span><a class="here">Floating Point</a></span>
+          </div>
         </h1>
 
         <nav class="hanging-menu">
@@ -869,21 +835,29 @@
           </ul>
         </nav>
 
+        <nav class="tabs">
+          <ul>
+            <li><a href="#~F_fixed-format-floating-point">~F (Fixed-Format)</a></li>
+            <li><a href="#~E_exponential-floating-point">~E (Exponential)</a></li>
+            <li><a href="#~G_general-floating-point">~G (General)</a></li>
+            <li><a href="#~dollar_monetary-floating-point">~$ (Monetary)</a></li>
+          </ul>
+        </nav>
+
         <p>To be written.</p>
 
         <section id="~F_fixed-format-floating-point">
 
-          <h1 class="breadcrumbs">
+          <h1 class="breadcrumbs-bar">
             <span class="section-relative-nav">
               <a href="#~F_fixed-format-floating-point" class="anchor">⚓</a>
             </span>
-            <a href="../">FORMAT reference</a>
-            <span class="separator"> » </span>
-            <a href="#">Format directives</a>
-            <span class="separator"> » </span>
-            <a href="#floating-point">Floating Point</a>
-            <span class="separator"> » </span>
-            <a class="here">~F (Fixed-Format)</a>
+            <div class="breadcrumbs">
+              <a href="../">FORMAT reference</a>
+              <span class="crumb"><span class="s"> » </span><a href="#">Format directives</a></span>
+              <span class="crumb"><span class="s"> » </span><a href="#floating-point">Floating Point</a></span>
+              <span class="crumb"><span class="s"> » </span><a class="here">~F (Fixed-Format)</a></span>
+            </div>
           </h1>
 
           <nav class="hanging-menu">
@@ -947,17 +921,16 @@
 
         <section id="~E_exponential-floating-point">
 
-          <h1 class="breadcrumbs">
+          <h1 class="breadcrumbs-bar">
             <span class="section-relative-nav">
               <a href="#~E_exponential-floating-point" class="anchor">⚓</a>
             </span>
-            <a href="../">FORMAT reference</a>
-            <span class="separator"> » </span>
-            <a href="#">Format directives</a>
-            <span class="separator"> » </span>
-            <a href="#floating-point">Floating Point</a>
-            <span class="separator"> » </span>
-            <a class="here">~E (Exponential)</a>
+            <div class="breadcrumbs">
+              <a href="../">FORMAT reference</a>
+              <span class="crumb"><span class="s"> » </span><a href="#">Format directives</a></span>
+              <span class="crumb"><span class="s"> » </span><a href="#floating-point">Floating Point</a></span>
+              <span class="crumb"><span class="s"> » </span><a class="here">~E (Exponential)</a></span>
+            </div>
           </h1>
 
           <nav class="hanging-menu">
@@ -1024,17 +997,16 @@
 
         <section id="~G_general-floating-point">
 
-          <h1 class="breadcrumbs">
+          <h1 class="breadcrumbs-bar">
             <span class="section-relative-nav">
               <a href="#~G_general-floating-point" class="anchor">⚓</a>
             </span>
-            <a href="../">FORMAT reference</a>
-            <span class="separator"> » </span>
-            <a href="#">Format directives</a>
-            <span class="separator"> » </span>
-            <a href="#floating-point">Floating Point</a>
-            <span class="separator"> » </span>
-            <a class="here">~G (General)</a>
+            <div class="breadcrumbs">
+              <a href="../">FORMAT reference</a>
+              <span class="crumb"><span class="s"> » </span><a href="#">Format directives</a></span>
+              <span class="crumb"><span class="s"> » </span><a href="#floating-point">Floating Point</a></span>
+              <span class="crumb"><span class="s"> » </span><a class="here">~G (General)</a></span>
+            </div>
           </h1>
 
           <nav class="hanging-menu">
@@ -1101,17 +1073,16 @@
 
         <section id="~dollar_monetary-floating-point">
 
-          <h1 class="breadcrumbs">
+          <h1 class="breadcrumbs-bar">
             <span class="section-relative-nav">
               <a href="#~dollar_monetary-floating-point" class="anchor">⚓</a>
             </span>
-            <a href="../">FORMAT reference</a>
-            <span class="separator"> » </span>
-            <a href="#">Format directives</a>
-            <span class="separator"> » </span>
-            <a href="#floating-point">Floating Point</a>
-            <span class="separator"> » </span>
-            <a class="here">~$ (Monetary)</a>
+            <div class="breadcrumbs">
+              <a href="../">FORMAT reference</a>
+              <span class="crumb"><span class="s"> » </span><a href="#">Format directives</a></span>
+              <span class="crumb"><span class="s"> » </span><a href="#floating-point">Floating Point</a></span>
+              <span class="crumb"><span class="s"> » </span><a class="here">~$ (Monetary)</a></span>
+            </div>
           </h1>
 
           <nav class="hanging-menu">
@@ -1123,7 +1094,7 @@
 
           <dl>
             <dt>Arguments</dt>
-            <dd>
+            <dd class="scroll">
               <table class="arguments sparse">
                 <thead>
                   <tr>
@@ -1186,15 +1157,15 @@
 
       <section id="~A_aesthetic">
 
-        <h1 class="breadcrumbs">
+        <h1 class="breadcrumbs-bar">
           <span class="section-relative-nav">
             <a href="#~A_aesthetic" class="anchor">⚓</a>
           </span>
-          <a href="../">FORMAT reference</a>
-          <span class="separator"> » </span>
-          <a href="#">Format directives</a>
-          <span class="separator"> » </span>
-          <a class="here">~A (Aesthetic)</a>
+          <div class="breadcrumbs">
+            <a href="../">FORMAT reference</a>
+            <span class="crumb"><span class="s"> » </span><a href="#">Format directives</a></span>
+            <span class="crumb"><span class="s"> » </span><a class="here">~A (Aesthetic)</a></span>
+          </div>
         </h1>
 
         <nav class="hanging-menu">
@@ -1206,7 +1177,7 @@
 
         <dl>
           <dt>Arguments</dt>
-          <dd>
+          <dd class="scroll">
             <table class="arguments sparse">
               <thead>
                 <tr>
@@ -1262,15 +1233,15 @@
 
       <section id="~S_standard">
 
-        <h1 class="breadcrumbs">
+        <h1 class="breadcrumbs-bar">
           <span class="section-relative-nav">
             <a href="#~S_standard" class="anchor">⚓</a>
           </span>
-          <a href="../">FORMAT reference</a>
-          <span class="separator"> » </span>
-          <a href="#">Format directives</a>
-          <span class="separator"> » </span>
-          <a class="here">~S (Standard)</a>
+          <div class="breadcrumbs">
+            <a href="../">FORMAT reference</a>
+            <span class="crumb"><span class="s"> » </span><a href="#">Format directives</a></span>
+            <span class="crumb"><span class="s"> » </span><a class="here">~S (Standard)</a></span>
+          </div>
         </h1>
 
         <nav class="hanging-menu">
@@ -1282,7 +1253,7 @@
 
         <dl>
           <dt>Arguments</dt>
-          <dd>
+          <dd class="scroll">
             <table class="arguments sparse">
               <thead>
                 <tr>
@@ -1336,15 +1307,15 @@
 
       <section id="~W_write">
 
-        <h1 class="breadcrumbs">
+        <h1 class="breadcrumbs-bar">
           <span class="section-relative-nav">
             <a href="#~W_write" class="anchor">⚓</a>
           </span>
-          <a href="../">FORMAT reference</a>
-          <span class="separator"> » </span>
-          <a href="#">Format directives</a>
-          <span class="separator"> » </span>
-          <a class="here">~W (Write)</a>
+          <div class="breadcrumbs">
+            <a href="../">FORMAT reference</a>
+            <span class="crumb"><span class="s"> » </span><a href="#">Format directives</a></span>
+            <span class="crumb"><span class="s"> » </span><a class="here">~W (Write)</a></span>
+          </div>
         </h1>
 
         <nav class="hanging-menu">
@@ -1356,7 +1327,7 @@
 
         <dl>
           <dt>Arguments</dt>
-          <dd>
+          <dd class="scroll">
             <table class="arguments sparse">
               <thead>
                 <tr>
@@ -1384,7 +1355,7 @@
             </table>
           </dd>
           <dt>Bound printer variables</dt>
-          <dd>
+          <dd class="scroll">
             <table class="bound-printer-variables">
               <tbody>
                 <tr>
@@ -1414,15 +1385,15 @@
 
       <section id="~underscore_conditional-newline">
 
-        <h1 class="breadcrumbs">
+        <h1 class="breadcrumbs-bar">
           <span class="section-relative-nav">
             <a href="#~underscore_conditional-newline" class="anchor">⚓</a>
           </span>
-          <a href="../">FORMAT reference</a>
-          <span class="separator"> » </span>
-          <a href="#">Format directives</a>
-          <span class="separator"> » </span>
-          <a class="here">~_ (Conditional Newline)</a>
+          <div class="breadcrumbs">
+            <a href="../">FORMAT reference</a>
+            <span class="crumb"><span class="s"> » </span><a href="#">Format directives</a></span>
+            <span class="crumb"><span class="s"> » </span><a class="here">~_ (Conditional Newline)</a></span>
+          </div>
         </h1>
 
         <nav class="hanging-menu">
@@ -1471,19 +1442,22 @@
 
       <section id="~less-than_logical-block">
 
-        <h1 class="breadcrumbs">
+        <h1 class="breadcrumbs-bar">
           <span class="section-relative-nav">
             <a href="#~less-than_logical-block" class="anchor">⚓</a>
           </span>
-          <a href="../">FORMAT reference</a>
-          <span class="separator"> » </span>
-          <a href="#">Format directives</a>
-          <span class="separator"> » </span>
-          ~&lt;
-          <span class="related-group">
-            <a class="here">~:&gt; (Logical Block)</a>
-            <a href="#~less-than_justification">~&gt;</a>
-          </span>
+          <div class="breadcrumbs">
+            <a href="../">FORMAT reference</a>
+            <span class="crumb"><span class="s"> » </span><a href="#">Format directives</a></span>
+            <span class="crumb">
+              <span class="s"> » </span>
+              <span class="helper">~&lt;</span>
+              <span class="related-group">
+                <a class="here">~:&gt; (Logical Block)</a>
+                <a href="#~less-than_justification">~&gt;</a>
+              </span>
+            </span>
+          </div>
         </h1>
 
         <nav class="hanging-menu">
@@ -1495,7 +1469,7 @@
 
         <dl>
           <dt>Arguments</dt>
-          <dd>
+          <dd class="scroll">
             <table class="arguments sparse">
               <thead>
                 <tr>
@@ -1528,15 +1502,15 @@
 
       <section id="~I_indent">
 
-        <h1 class="breadcrumbs">
+        <h1 class="breadcrumbs-bar">
           <span class="section-relative-nav">
             <a href="#~I_indent" class="anchor">⚓</a>
           </span>
-          <a href="../">FORMAT reference</a>
-          <span class="separator"> » </span>
-          <a href="#">Format directives</a>
-          <span class="separator"> » </span>
-          <a class="here">~I (Indent)</a>
+          <div class="breadcrumbs">
+            <a href="../">FORMAT reference</a>
+            <span class="crumb"><span class="s"> » </span><a href="#">Format directives</a></span>
+            <span class="crumb"><span class="s"> » </span><a class="here">~I (Indent)</a></span>
+          </div>
         </h1>
 
         <nav class="hanging-menu">
@@ -1581,15 +1555,15 @@
 
       <section id="~slash_call-function">
 
-        <h1 class="breadcrumbs">
+        <h1 class="breadcrumbs-bar">
           <span class="section-relative-nav">
             <a href="#~slash_call-function" class="anchor">⚓</a>
           </span>
-          <a href="../">FORMAT reference</a>
-          <span class="separator"> » </span>
-          <a href="#">Format directives</a>
-          <span class="separator"> » </span>
-          <a class="here">~/<var>name</var>/ (Call Function)</a>
+          <div class="breadcrumbs">
+            <a href="../">FORMAT reference</a>
+            <span class="crumb"><span class="s"> » </span><a href="#">Format directives</a></span>
+            <span class="crumb"><span class="s"> » </span><a class="here">~/<var>name</var>/ (Call Function)</a></span>
+          </div>
         </h1>
 
         <nav class="hanging-menu">
@@ -1610,15 +1584,15 @@
 
       <section id="~T_tabulate">
 
-        <h1 class="breadcrumbs">
+        <h1 class="breadcrumbs-bar">
           <span class="section-relative-nav">
             <a href="#~T_tabulate" class="anchor">⚓</a>
           </span>
-          <a href="../">FORMAT reference</a>
-          <span class="separator"> » </span>
-          <a href="#">Format directives</a>
-          <span class="separator"> » </span>
-          <a class="here">~T (Tabulate)</a>
+          <div class="breadcrumbs">
+            <a href="../">FORMAT reference</a>
+            <span class="crumb"><span class="s"> » </span><a href="#">Format directives</a></span>
+            <span class="crumb"><span class="s"> » </span><a class="here">~T (Tabulate)</a></span>
+          </div>
         </h1>
 
         <nav class="hanging-menu">
@@ -1672,19 +1646,22 @@
 
       <section id="~less-than_justification">
 
-        <h1 class="breadcrumbs">
+        <h1 class="breadcrumbs-bar">
           <span class="section-relative-nav">
             <a href="#~less-than_justification" class="anchor">⚓</a>
           </span>
-          <a href="../">FORMAT reference</a>
-          <span class="separator"> » </span>
-          <a href="#">Format directives</a>
-          <span class="separator"> » </span>
-          ~&lt;
-          <span class="related-group">
-            <a href="#~less-than_logical-block">~:&gt;</a>
-            <a class="here">~&gt; (Justification)</a>
-          </span>
+          <div class="breadcrumbs">
+            <a href="../">FORMAT reference</a>
+            <span class="crumb"><span class="s"> » </span><a href="#">Format directives</a></span>
+            <span class="crumb">
+              <span class="s"> » </span>
+              ~&lt;
+              <span class="related-group">
+                <a href="#~less-than_logical-block">~:&gt;</a>
+                <a class="here">~&gt; (Justification)</a>
+              </span>
+            </span>
+          </div>
         </h1>
 
         <nav class="hanging-menu">
@@ -1696,7 +1673,7 @@
 
         <dl>
           <dt>Arguments</dt>
-          <dd>
+          <dd class="scroll">
             <table class="arguments sparse">
               <thead>
                 <tr>
@@ -1737,15 +1714,15 @@
 
       <section id="~star_go-to">
 
-        <h1 class="breadcrumbs">
+        <h1 class="breadcrumbs-bar">
           <span class="section-relative-nav">
             <a href="#~star_go-to" class="anchor">⚓</a>
           </span>
-          <a href="../">FORMAT reference</a>
-          <span class="separator"> » </span>
-          <a href="#">Format directives</a>
-          <span class="separator"> » </span>
-          <a class="here">~* (Go-To)</a>
+          <div class="breadcrumbs">
+            <a href="../">FORMAT reference</a>
+            <span class="crumb"><span class="s"> » </span><a href="#">Format directives</a></span>
+            <span class="crumb"><span class="s"> » </span><a class="here">~* (Go-To)</a></span>
+          </div>
         </h1>
 
         <nav class="hanging-menu">
@@ -1796,38 +1773,15 @@
 
       <section id="~left-square-bracket_conditional-expression">
 
-        <nav class="section-nav">
-
-          <nav class="ancestors-nav">
-
-            <nav class="navbox">
-              <h1>
-                <a class="here"><abbr title="Conditional">Cond</abbr> Expression</a>
-                <span class="here-indicator-left"> </span>
-                <span class="here-indicator-right"> </span>
-              </h1>
-              <ul>
-                <li><a href="#~left-square-bracket_case">~[ <span class="name">(case)</span></a></li>
-                <li><a href="#~left-square-bracket_if">~:[ <span class="name">(if)</span></a></li>
-                <li><a href="#~left-square-bracket_when">~@[ <span class="name">(when)</span></a></li>
-              </ul>
-            </nav>
-
-            <a href="#~left-curly-bracket_iteration" class="navbox-next">⬇</a>
-
-          </nav>
-
-        </nav>
-
-        <h1 class="breadcrumbs">
+        <h1 class="breadcrumbs-bar">
           <span class="section-relative-nav">
             <a href="#~left-square-bracket_conditional-expression" class="anchor">⚓</a>
           </span>
-          <a href="../">FORMAT reference</a>
-          <span class="separator"> » </span>
-          <a href="#">Format directives</a>
-          <span class="separator"> » </span>
-          <a class="here">~[~] (Conditional Expression)</a>
+          <div class="breadcrumbs">
+            <a href="../">FORMAT reference</a>
+            <span class="crumb"><span class="s"> » </span><a href="#">Format directives</a></span>
+            <span class="crumb"><span class="s"> » </span><a class="here">~[~] (Conditional Expression)</a></span>
+          </div>
         </h1>
 
         <nav class="hanging-menu">
@@ -1837,19 +1791,26 @@
           </ul>
         </nav>
 
+        <nav class="tabs">
+          <ul>
+            <li><a href="#~left-square-bracket_case">~[ <span class="name">(case)</span></a></li>
+            <li><a href="#~left-square-bracket_if">~:[ <span class="name">(if)</span></a></li>
+            <li><a href="#~left-square-bracket_when">~@[ <span class="name">(when)</span></a></li>
+          </ul>
+        </nav>
+
         <section id="~left-square-bracket_case">
 
-          <h1 class="breadcrumbs">
+          <h1 class="breadcrumbs-bar">
             <span class="section-relative-nav">
               <a href="#~left-square-bracket_case" class="anchor">⚓</a>
             </span>
-            <a href="../">FORMAT reference</a>
-            <span class="separator"> » </span>
-            <a href="#">Format directives</a>
-            <span class="separator"> » </span>
-            <a href="#~left-square-bracket_conditional-expression">~[~]</a>
-            <span class="separator"> » </span>
-            <a class="here">~[ (case)</a>
+            <div class="breadcrumbs">
+              <a href="../">FORMAT reference</a>
+              <span class="crumb"><span class="s"> » </span><a href="#">Format directives</a></span>
+              <span class="crumb"><span class="s"> » </span><a href="#~left-square-bracket_conditional-expression">~[~]</a></span>
+              <span class="crumb"><span class="s"> » </span><a class="here">~[ (case)</a></span>
+            </div>
           </h1>
 
           <nav class="hanging-menu">
@@ -1898,17 +1859,16 @@
 
         <section id="~left-square-bracket_if">
 
-          <h1 class="breadcrumbs">
+          <h1 class="breadcrumbs-bar">
             <span class="section-relative-nav">
               <a href="#~left-square-bracket_if" class="anchor">⚓</a>
             </span>
-            <a href="../">FORMAT reference</a>
-            <span class="separator"> » </span>
-            <a href="#">Format directives</a>
-            <span class="separator"> » </span>
-            <a href="#~left-square-bracket_conditional-expression">~[~]</a>
-            <span class="separator"> » </span>
-            <a class="here">~:[ (if)</a>
+            <div class="breadcrumbs">
+              <a href="../">FORMAT reference</a>
+              <span class="crumb"><span class="s"> » </span><a href="#">Format directives</a></span>
+              <span class="crumb"><span class="s"> » </span><a href="#~left-square-bracket_conditional-expression">~[~]</a></span>
+              <span class="crumb"><span class="s"> » </span><a class="here">~:[ (if)</a></span>
+            </div>
           </h1>
 
           <nav class="hanging-menu">
@@ -1953,17 +1913,16 @@
 
         <section id="~left-square-bracket_when">
 
-          <h1 class="breadcrumbs">
+          <h1 class="breadcrumbs-bar">
             <span class="section-relative-nav">
               <a href="#~left-square-bracket_when" class="anchor">⚓</a>
             </span>
-            <a href="../">FORMAT reference</a>
-            <span class="separator"> » </span>
-            <a href="#">Format directives</a>
-            <span class="separator"> » </span>
-            <a href="#~left-square-bracket_conditional-expression">~[~]</a>
-            <span class="separator"> » </span>
-            <a class="here">~@[ (when)</a>
+            <div class="breadcrumbs">
+              <a href="../">FORMAT reference</a>
+              <span class="crumb"><span class="s"> » </span><a href="#">Format directives</a></span>
+              <span class="crumb"><span class="s"> » </span><a href="#~left-square-bracket_conditional-expression">~[~]</a></span>
+              <span class="crumb"><span class="s"> » </span><a class="here">~@[ (when)</a></span>
+            </div>
           </h1>
 
           <nav class="hanging-menu">
@@ -2010,15 +1969,15 @@
 
       <section id="~left-curly-bracket_iteration">
 
-        <h1 class="breadcrumbs">
+        <h1 class="breadcrumbs-bar">
           <span class="section-relative-nav">
             <a href="#~left-curly-bracket_iteration" class="anchor">⚓</a>
           </span>
-          <a href="../">FORMAT reference</a>
-          <span class="separator"> » </span>
-          <a href="#">Format directives</a>
-          <span class="separator"> » </span>
-          <a class="here">~{~} (Iteration)</a>
+          <div class="breadcrumbs">
+            <a href="../">FORMAT reference</a>
+            <span class="crumb"><span class="s"> » </span><a href="#">Format directives</a></span>
+            <span class="crumb"><span class="s"> » </span><a class="here">~{~} (Iteration)</a></span>
+          </div>
         </h1>
 
         <nav class="hanging-menu">
@@ -2030,7 +1989,7 @@
 
         <dl>
           <dt>Arguments</dt>
-          <dd>
+          <dd class="scroll">
             <table class="arguments sparse">
               <thead>
                 <tr>
@@ -2067,15 +2026,15 @@
 
       <section id="~question-mark_recursive-processing">
 
-        <h1 class="breadcrumbs">
+        <h1 class="breadcrumbs-bar">
           <span class="section-relative-nav">
             <a href="#~question-mark_recursive-processing" class="anchor">⚓</a>
           </span>
-          <a href="../">FORMAT reference</a>
-          <span class="separator"> » </span>
-          <a href="#">Format directives</a>
-          <span class="separator"> » </span>
-          <a class="here">~? (Recursive Processing)</a>
+          <div class="breadcrumbs">
+            <a href="../">FORMAT reference</a>
+            <span class="crumb"><span class="s"> » </span><a href="#">Format directives</a></span>
+            <span class="crumb"><span class="s"> » </span><a class="here">~? (Recursive Processing)</a></span>
+          </div>
         </h1>
 
         <nav class="hanging-menu">
@@ -2117,15 +2076,15 @@
 
       <section id="~left-parenthesis_case-conversion">
 
-        <h1 class="breadcrumbs">
+        <h1 class="breadcrumbs-bar">
           <span class="section-relative-nav">
             <a href="#~left-parenthesis_case-conversion" class="anchor">⚓</a>
           </span>
-          <a href="../">FORMAT reference</a>
-          <span class="separator"> » </span>
-          <a href="#">Format directives</a>
-          <span class="separator"> » </span>
-          <a class="here">~(~) (Case Conversion)</a>
+          <div class="breadcrumbs">
+            <a href="../">FORMAT reference</a>
+            <span class="crumb"><span class="s"> » </span><a href="#">Format directives</a></span>
+            <span class="crumb"><span class="s"> » </span><a class="here">~(~) (Case Conversion)</a></span>
+          </div>
         </h1>
 
         <nav class="hanging-menu">
@@ -2176,15 +2135,15 @@
 
       <section id="~P_plural">
 
-        <h1 class="breadcrumbs">
+        <h1 class="breadcrumbs-bar">
           <span class="section-relative-nav">
             <a href="#~P_plural" class="anchor">⚓</a>
           </span>
-          <a href="../">FORMAT reference</a>
-          <span class="separator"> » </span>
-          <a href="#">Format directives</a>
-          <span class="separator"> » </span>
-          <a class="here">~P (Plural)</a>
+          <div class="breadcrumbs">
+            <a href="../">FORMAT reference</a>
+            <span class="crumb"><span class="s"> » </span><a href="#">Format directives</a></span>
+            <span class="crumb"><span class="s"> » </span><a class="here">~P (Plural)</a></span>
+          </div>
         </h1>
 
         <nav class="hanging-menu">
@@ -2196,7 +2155,7 @@
 
         <dl>
           <dt>Arguments</dt>
-          <dd>
+          <dd class="scroll">
             <table class="arguments sparse">
               <thead>
                 <tr>
@@ -2230,11 +2189,17 @@
     </main>
 
     <footer id="footer">
-      <div>
-        <a href="#" class="back-to-top">⬆</a>
-        <span class="page-badge"><a href="http://validator.w3.org/check?uri=http%3A%2F%2Fwww.hexstreamsoft.com%2Farticles%2Fcommon-lisp-format-reference%2Fformat-directives%2F"><span class="checkmark">✔</span> HTML5</a></span>
-        <span class="page-badge"><a href="https://www.hexstreamsoft.com/README"><span class="checkmark">✔</span> Public Domain</a></span>
-        <span class="page-badge"><a href="http://jigsaw.w3.org/css-validator/validator?uri=http%3A%2F%2Fwww.hexstreamsoft.com%2Farticles%2Fcommon-lisp-format-reference%2Fformat-directives%2F"><span class="checkmark">✔</span> CSS3</a></span>
+      <div class="back-to-top left">
+        <a href="#">⬆</a>
+      </div>
+      <div class="main">
+        <a href="http://validator.w3.org/check?uri=http%3A%2F%2Fwww.hexstreamsoft.com%2Farticles%2Fcommon-lisp-format-reference%2Fformat-directives%2F">✔ HTML5</a>
+        <a href="https://www.hexstreamsoft.com/README">✔ Public Domain</a>
+        <a href="http://jigsaw.w3.org/css-validator/validator?uri=http%3A%2F%2Fwww.hexstreamsoft.com%2Farticles%2Fcommon-lisp-format-reference%2Fformat-directives%2F">✔ CSS3</a>
+        <a>✔ Mobile-friendly</a>
+      </div>
+      <div class="back-to-top right">
+        <a href="#">⬆</a>
       </div>
     </footer>
 
