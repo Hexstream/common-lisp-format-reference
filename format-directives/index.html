@@ -241,10 +241,10 @@
           </ul>
         </nav>
 
-        <dl>
-          <dt>Arguments</dt>
-          <dd class="scroll">
-            <table class="arguments sparse">
+        <div class="overview">
+          <section class="arguments">
+            <h1>Arguments</h1>
+            <table class="sparse">
               <thead>
                 <tr>
                   <th>Prefix</th>
@@ -277,10 +277,10 @@
                 </tr>
               </tbody>
             </table>
-          </dd>
-          <dt>Bound printer variables</dt>
-          <dd>
-            <table class="bound-printer-variables">
+          </section>
+          <section class="bound-printer-variables">
+            <h1>Bound printer variables</h1>
+            <table>
               <tbody>
                 <tr>
                   <th rowspan="2">if @ (only)</th>
@@ -291,8 +291,8 @@
                 </tr>
               </tbody>
             </table>
-          </dd>
-        </dl>
+          </section>
+        </div>
 
       </section>
 
@@ -324,10 +324,10 @@
           </ul>
         </nav>
 
-        <dl>
-          <dt>Arguments</dt>
-          <dd>
-            <table class="arguments sparse">
+        <div class="overview">
+          <section class="arguments">
+            <h1>Arguments</h1>
+            <table class="sparse">
               <thead>
                 <tr>
                   <th>Prefix</th>
@@ -347,8 +347,8 @@
                 </tr>
               </tbody>
             </table>
-          </dd>
-        </dl>
+          </section>
+        </div>
 
       </section>
 
@@ -380,10 +380,10 @@
           </ul>
         </nav>
 
-        <dl>
-          <dt>Arguments</dt>
-          <dd>
-            <table class="arguments sparse">
+        <div class="overview">
+          <section class="arguments">
+            <h1>Arguments</h1>
+            <table class="sparse">
               <thead>
                 <tr>
                   <th>Prefix</th>
@@ -403,8 +403,8 @@
                 </tr>
               </tbody>
             </table>
-          </dd>
-        </dl>
+          </section>
+        </div>
 
       </section>
 
@@ -436,10 +436,10 @@
           </ul>
         </nav>
 
-        <dl>
-          <dt>Arguments</dt>
-          <dd>
-            <table class="arguments sparse">
+        <div class="overview">
+          <section class="arguments">
+            <h1>Arguments</h1>
+            <table class="sparse">
               <thead>
                 <tr>
                   <th>Prefix</th>
@@ -459,8 +459,8 @@
                 </tr>
               </tbody>
             </table>
-          </dd>
-        </dl>
+          </section>
+        </div>
 
       </section>
 
@@ -492,10 +492,10 @@
           </ul>
         </nav>
 
-        <dl>
-          <dt>Arguments</dt>
-          <dd>
-            <table class="arguments sparse">
+        <div class="overview">
+          <section class="arguments">
+            <h1>Arguments</h1>
+            <table class="sparse">
               <thead>
                 <tr>
                   <th>Prefix</th>
@@ -515,8 +515,8 @@
                 </tr>
               </tbody>
             </table>
-          </dd>
-        </dl>
+          </section>
+        </div>
 
       </section>
 
@@ -570,10 +570,10 @@
             </ul>
           </nav>
 
-          <dl>
-            <dt>Arguments</dt>
-            <dd>
-              <table class="arguments sparse">
+          <div class="overview">
+            <section class="arguments">
+              <h1>Arguments</h1>
+              <table class="sparse">
                 <thead>
                   <tr>
                     <th>Prefix</th>
@@ -606,10 +606,10 @@
                   </tr>
                 </tbody>
               </table>
-            </dd>
-            <dt>Bound printer variables</dt>
-            <dd>
-              <table class="bound-printer-variables">
+            </section>
+            <section class="bound-printer-variables">
+              <h1>Bound printer variables</h1>
+              <table>
                 <tbody>
                   <tr>
                     <th>*print-base*</th>
@@ -619,8 +619,8 @@
                   </tr>
                 </tbody>
               </table>
-            </dd>
-          </dl>
+            </section>
+          </div>
 
         </section>
 
@@ -645,10 +645,10 @@
             </ul>
           </nav>
 
-          <dl>
-            <dt>Arguments</dt>
-            <dd class="scroll">
-              <table class="arguments sparse">
+          <div class="overview">
+            <section class="arguments">
+              <h1>Arguments</h1>
+              <table class="sparse">
                 <thead>
                   <tr>
                     <th>Prefix</th>
@@ -681,10 +681,10 @@
                   </tr>
                 </tbody>
               </table>
-            </dd>
-            <dt>Bound printer variables</dt>
-            <dd class="scroll">
-              <table class="bound-printer-variables">
+            </section>
+            <section class="bound-printer-variables">
+              <h1>Bound printer variables</h1>
+              <table>
                 <tbody>
                   <tr>
                     <th>*print-escape*</th>
@@ -700,8 +700,8 @@
                   </tr>
                 </tbody>
               </table>
-            </dd>
-          </dl>
+            </section>
+          </div>
 
         </section>
 
@@ -733,16 +733,16 @@
           </ul>
         </nav>
 
-        <dl>
-          <dt>Arguments</dt>
-          <dd>
+        <div class="overview">
+          <section class="arguments">
+            <h1>Arguments</h1>
             <p><em>Same as <a href="#~R-with-prefix-arguments">~R with prefix args</a>,<br />but without the initial <var>radix</var> prefix argument.</em></p>
-          </dd>
-          <dt>Bound printer variables</dt>
-          <dd>
+          </section>
+          <section class="bound-printer-variables">
+            <h1>Bound printer variables</h1>
             <p><em>Same as <a href="#~R-with-prefix-arguments">~R with prefix args</a>.</em><br /><var>*print-base*</var> is bound to the corresponding <var>radix</var> indicated in the table below.</p>
-          </dd>
-        </dl>
+          </section>
+        </div>
 
         <p>These format directives are merely convenient aliases for invoking the <code><a href="#~R-with-prefix-arguments">~R</a></code> format directive with a specific radix argument, followed by any prefix arguments and modifiers given to the alias, which are forwarded directly to <code><a href="#~R-with-prefix-arguments">~R</a></code>.</p>
 
@@ -834,10 +834,10 @@
             </ul>
           </nav>
 
-          <dl>
-            <dt>Arguments</dt>
-            <dd>
-              <table class="arguments sparse">
+          <div class="overview">
+            <section class="arguments">
+              <h1>Arguments</h1>
+              <table class="sparse">
                 <thead>
                   <tr>
                     <th>Prefix</th>
@@ -866,10 +866,10 @@
                   </tr>
                 </tbody>
               </table>
-            </dd>
-            <dt>Bound printer variables</dt>
-            <dd>
-              <table class="bound-printer-variables">
+            </section>
+            <section class="bound-printer-variables">
+              <h1>Bound printer variables</h1>
+              <table>
                 <tbody>
                   <tr>
                     <th>*print-escape*</th>
@@ -881,8 +881,8 @@
                   </tr>
                 </tbody>
               </table>
-            </dd>
-          </dl>
+            </section>
+          </div>
 
         </section>
 
@@ -907,11 +907,11 @@
             </ul>
           </nav>
 
-          <dl>
-            <dt>Arguments</dt>
-            <dd>
-              <em>Same as ~G:</em>
-              <table class="arguments sparse">
+          <div class="overview">
+            <section class="arguments">
+              <h1>Arguments</h1>
+              <p><em>Same as ~G:</em></p>
+              <table class="sparse">
                 <thead>
                   <tr>
                     <th>Prefix</th>
@@ -942,10 +942,10 @@
                   </tr>
                 </tbody>
               </table>
-            </dd>
-            <dt>Bound printer variables</dt>
-            <dd>
-              <table class="bound-printer-variables">
+            </section>
+            <section class="bound-printer-variables">
+              <h1>Bound printer variables</h1>
+              <table>
                 <tbody>
                   <tr>
                     <th>*print-escape*</th>
@@ -957,8 +957,8 @@
                   </tr>
                 </tbody>
               </table>
-            </dd>
-          </dl>
+            </section>
+          </div>
 
         </section>
 
@@ -983,11 +983,11 @@
             </ul>
           </nav>
 
-          <dl>
-            <dt>Arguments</dt>
-            <dd>
-              <em>Same as ~E:</em>
-              <table class="arguments sparse">
+          <div class="overview">
+            <section class="arguments">
+              <h1>Arguments</h1>
+              <p><em>Same as ~E:</em></p>
+              <table class="sparse">
                 <thead>
                   <tr>
                     <th>Prefix</th>
@@ -1018,10 +1018,10 @@
                   </tr>
                 </tbody>
               </table>
-            </dd>
-            <dt>Bound printer variables</dt>
-            <dd>
-              <table class="bound-printer-variables">
+            </section>
+            <section class="bound-printer-variables">
+              <h1>Bound printer variables</h1>
+              <table>
                 <tbody>
                   <tr>
                     <th>*print-escape*</th>
@@ -1033,8 +1033,8 @@
                   </tr>
                 </tbody>
               </table>
-            </dd>
-          </dl>
+            </section>
+          </div>
 
         </section>
 
@@ -1059,10 +1059,10 @@
             </ul>
           </nav>
 
-          <dl>
-            <dt>Arguments</dt>
-            <dd class="scroll">
-              <table class="arguments sparse">
+          <div class="overview">
+            <section class="arguments">
+              <h1>Arguments</h1>
+              <table class="sparse">
                 <thead>
                   <tr>
                     <th>Prefix</th>
@@ -1094,10 +1094,10 @@
                   </tr>
                 </tbody>
               </table>
-            </dd>
-            <dt>Bound printer variables</dt>
-            <dd>
-              <table class="bound-printer-variables">
+            </section>
+            <section class="bound-printer-variables">
+              <h1>Bound printer variables</h1>
+              <table>
                 <tbody>
                   <tr>
                     <th>*print-escape*</th>
@@ -1109,8 +1109,8 @@
                   </tr>
                 </tbody>
               </table>
-            </dd>
-          </dl>
+            </section>
+          </div>
 
         </section>
 
@@ -1142,10 +1142,10 @@
           </ul>
         </nav>
 
-        <dl>
-          <dt>Arguments</dt>
-          <dd class="scroll">
-            <table class="arguments sparse">
+        <div class="overview">
+          <section class="arguments">
+            <h1>Arguments</h1>
+            <table class="sparse">
               <thead>
                 <tr>
                   <th>Prefix</th>
@@ -1178,10 +1178,10 @@
                 </tr>
               </tbody>
             </table>
-          </dd>
-          <dt>Bound printer variables</dt>
-          <dd>
-            <table class="bound-printer-variables">
+          </section>
+          <section class="bound-printer-variables">
+            <h1>Bound printer variables</h1>
+            <table>
               <tbody>
                 <tr>
                   <th>*print-escape*</th>
@@ -1193,8 +1193,8 @@
                 </tr>
               </tbody>
             </table>
-          </dd>
-        </dl>
+          </section>
+        </div>
 
       </section>
 
@@ -1218,10 +1218,10 @@
           </ul>
         </nav>
 
-        <dl>
-          <dt>Arguments</dt>
-          <dd class="scroll">
-            <table class="arguments sparse">
+        <div class="overview">
+          <section class="arguments">
+            <h1>Arguments</h1>
+            <table class="sparse">
               <thead>
                 <tr>
                   <th>Prefix</th>
@@ -1254,10 +1254,10 @@
                 </tr>
               </tbody>
             </table>
-          </dd>
-          <dt>Bound printer variables</dt>
-          <dd>
-            <table class="bound-printer-variables">
+          </section>
+          <section class="bound-printer-variables">
+            <h1>Bound printer variables</h1>
+            <table>
               <tbody>
                 <tr>
                   <th>*print-escape*</th>
@@ -1267,8 +1267,8 @@
                 </tr>
               </tbody>
             </table>
-          </dd>
-        </dl>
+          </section>
+        </div>
 
       </section>
 
@@ -1292,10 +1292,10 @@
           </ul>
         </nav>
 
-        <dl>
-          <dt>Arguments</dt>
-          <dd class="scroll">
-            <table class="arguments sparse">
+        <div class="overview">
+          <section class="arguments">
+            <h1>Arguments</h1>
+            <table class="sparse">
               <thead>
                 <tr>
                   <th>Prefix</th>
@@ -1320,10 +1320,10 @@
                 </tr>
               </tbody>
             </table>
-          </dd>
-          <dt>Bound printer variables</dt>
-          <dd class="scroll">
-            <table class="bound-printer-variables">
+          </section>
+          <section class="bound-printer-variables">
+            <h1>Bound printer variables</h1>
+            <table>
               <tbody>
                 <tr>
                   <th rowspan="2">if :</th>
@@ -1345,8 +1345,8 @@
                 </tr>
               </tbody>
             </table>
-          </dd>
-        </dl>
+          </section>
+        </div>
 
       </section>
 
@@ -1370,10 +1370,10 @@
           </ul>
         </nav>
 
-        <dl>
-          <dt>Arguments</dt>
-          <dd>
-            <table class="arguments sparse">
+        <div class="overview">
+          <section class="arguments">
+            <h1>Arguments</h1>
+            <table class="sparse">
               <thead>
                 <tr>
                   <th>Prefix</th>
@@ -1402,8 +1402,8 @@
                 </tr>
               </tbody>
             </table>
-          </dd>
-        </dl>
+          </section>
+        </div>
 
       </section>
 
@@ -1434,10 +1434,10 @@
           </ul>
         </nav>
 
-        <dl>
-          <dt>Arguments</dt>
-          <dd class="scroll">
-            <table class="arguments sparse">
+        <div class="overview">
+          <section class="arguments">
+            <h1>Arguments</h1>
+            <table class="sparse">
               <thead>
                 <tr>
                   <th>Prefix</th>
@@ -1462,8 +1462,8 @@
                 </tr>
               </tbody>
             </table>
-          </dd>
-        </dl>
+          </section>
+        </div>
 
       </section>
 
@@ -1487,10 +1487,10 @@
           </ul>
         </nav>
 
-        <dl>
-          <dt>Arguments</dt>
-          <dd>
-            <table class="arguments sparse">
+        <div class="overview">
+          <section class="arguments">
+            <h1>Arguments</h1>
+            <table class="sparse">
               <thead>
                 <tr>
                   <th>Prefix</th>
@@ -1515,8 +1515,8 @@
                 </tr>
               </tbody>
             </table>
-          </dd>
-        </dl>
+          </section>
+        </div>
 
       </section>
 
@@ -1540,12 +1540,12 @@
           </ul>
         </nav>
 
-        <dl>
-          <dt>Arguments</dt>
-          <dd>
+        <div class="overview">
+          <section class="arguments">
+            <h1>Arguments</h1>
             <p>All prefix arguments and modifiers<br />along with one consumed argument<br />are forwarded to the function.</p>
-          </dd>
-        </dl>
+          </section>
+        </div>
 
       </section>
 
@@ -1569,10 +1569,10 @@
           </ul>
         </nav>
 
-        <dl>
-          <dt>Arguments</dt>
-          <dd>
-            <table class="arguments sparse">
+        <div class="overview">
+          <section class="arguments">
+            <h1>Arguments</h1>
+            <table class="sparse">
               <thead>
                 <tr>
                   <th>Prefix</th>
@@ -1606,8 +1606,8 @@
                 </tr>
               </tbody>
             </table>
-          </dd>
-        </dl>
+          </section>
+        </div>
 
       </section>
 
@@ -1638,10 +1638,10 @@
           </ul>
         </nav>
 
-        <dl>
-          <dt>Arguments</dt>
-          <dd class="scroll">
-            <table class="arguments sparse">
+        <div class="overview">
+          <section class="arguments">
+            <h1>Arguments</h1>
+            <table class="sparse">
               <thead>
                 <tr>
                   <th>Prefix</th>
@@ -1674,8 +1674,8 @@
                 </tr>
               </tbody>
             </table>
-          </dd>
-        </dl>
+          </section>
+        </div>
 
       </section>
 
@@ -1699,10 +1699,10 @@
           </ul>
         </nav>
 
-        <dl>
-          <dt>Arguments</dt>
-          <dd>
-            <table class="arguments sparse">
+        <div class="overview">
+          <section class="arguments">
+            <h1>Arguments</h1>
+            <table class="sparse">
               <thead>
                 <tr>
                   <th>Prefix</th>
@@ -1733,8 +1733,8 @@
                 </tr>
               </tbody>
             </table>
-          </dd>
-        </dl>
+          </section>
+        </div>
 
       </section>
 
@@ -1787,10 +1787,10 @@
             </ul>
           </nav>
 
-          <dl>
-            <dt>Arguments</dt>
-            <dd>
-              <table class="arguments sparse">
+          <div class="overview">
+            <section class="arguments">
+              <h1>Arguments</h1>
+              <table class="sparse">
                 <thead>
                   <tr>
                     <th>Prefix</th>
@@ -1819,8 +1819,8 @@
                   </tr>
                 </tbody>
               </table>
-            </dd>
-          </dl>
+            </section>
+          </div>
 
         </section>
 
@@ -1845,10 +1845,10 @@
             </ul>
           </nav>
 
-          <dl>
-            <dt>Arguments</dt>
-            <dd>
-              <table class="arguments sparse">
+          <div class="overview">
+            <section class="arguments">
+              <h1>Arguments</h1>
+              <table class="sparse">
                 <thead>
                   <tr>
                     <th>Prefix</th>
@@ -1873,8 +1873,8 @@
                   </tr>
                 </tbody>
               </table>
-            </dd>
-          </dl>
+            </section>
+          </div>
 
         </section>
 
@@ -1899,10 +1899,10 @@
             </ul>
           </nav>
 
-          <dl>
-            <dt>Arguments</dt>
-            <dd>
-              <table class="arguments sparse">
+          <div class="overview">
+            <section class="arguments">
+              <h1>Arguments</h1>
+              <table class="sparse">
                 <thead>
                   <tr>
                     <th>Prefix</th>
@@ -1927,8 +1927,8 @@
                   </tr>
                 </tbody>
               </table>
-            </dd>
-          </dl>
+            </section>
+          </div>
 
         </section>
 
@@ -1954,10 +1954,10 @@
           </ul>
         </nav>
 
-        <dl>
-          <dt>Arguments</dt>
-          <dd class="scroll">
-            <table class="arguments sparse">
+        <div class="overview">
+          <section class="arguments">
+            <h1>Arguments</h1>
+            <table class="sparse">
               <thead>
                 <tr>
                   <th>Prefix</th>
@@ -1986,8 +1986,8 @@
                 </tr>
               </tbody>
             </table>
-          </dd>
-        </dl>
+          </section>
+        </div>
 
       </section>
 
@@ -2011,10 +2011,10 @@
           </ul>
         </nav>
 
-        <dl>
-          <dt>Arguments</dt>
-          <dd>
-            <table class="arguments sparse">
+        <div class="overview">
+          <section class="arguments">
+            <h1>Arguments</h1>
+            <table class="sparse">
               <thead>
                 <tr>
                   <th>Prefix</th>
@@ -2036,8 +2036,8 @@
                 </tr>
               </tbody>
             </table>
-          </dd>
-        </dl>
+          </section>
+        </div>
 
       </section>
 
@@ -2061,10 +2061,10 @@
           </ul>
         </nav>
 
-        <dl>
-          <dt>Arguments</dt>
-          <dd>
-            <table class="arguments sparse">
+        <div class="overview">
+          <section class="arguments">
+            <h1>Arguments</h1>
+            <table class="sparse">
               <thead>
                 <tr>
                   <th>Prefix</th>
@@ -2095,8 +2095,8 @@
                 </tr>
               </tbody>
             </table>
-          </dd>
-        </dl>
+          </section>
+        </div>
 
       </section>
 
@@ -2120,10 +2120,10 @@
           </ul>
         </nav>
 
-        <dl>
-          <dt>Arguments</dt>
-          <dd class="scroll">
-            <table class="arguments sparse">
+        <div class="overview">
+          <section class="arguments">
+            <h1>Arguments</h1>
+            <table class="sparse">
               <thead>
                 <tr>
                   <th>Prefix</th>
@@ -2148,8 +2148,8 @@
                 </tr>
               </tbody>
             </table>
-          </dd>
-        </dl>
+          </section>
+        </div>
 
       </section>
 

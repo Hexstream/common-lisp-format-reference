@@ -6,66 +6,73 @@
     white-space: initial;
 }
 
-table thead th {
+.overview table {
+    text-align: left;
+
+}
+
+.overview table thead th {
     white-space: initial;
 }
 
-dd {
-    margin-left: 0;
-}
-
-table ol {
+.overview table ol {
     margin-left: 1em;
     margin-right: 0;
 }
 
-
-main dl dt {
+.overview section {
+    padding-top: 0;
+    margin: 0;
     text-align: center;
-    margin: 1em auto 0.5em;
+}
+
+.overview section h1 {
+    font-size: large;
+    font-weight: normal;
     padding-bottom: 0.25em;
+    margin: 0 auto;
     border-bottom: thin solid lightgray;
     width: 15em;
 }
 
-main dl dd {
-    text-align: center;
+.overview .arguments table {
+    margin-top: 1em;
 }
 
-main dl dd table {
-    text-align: left;
+.overview p:first-of-type {
+    margin-top: 0.5em;
 }
 
 #radix-aliases-table thead th {
     vertical-align: bottom;
 }
 
-table.arguments tr th {
+.arguments table tr th {
     text-align: left;
 }
 
-table.arguments th.modifiers {
+.arguments table th.modifiers {
     text-align: center;
     letter-spacing: 0.05em;
     font-size: larger;
 }
 
-table.bound-printer-variables {
+.bound-printer-variables table {
     border: none;
 }
 
-table.bound-printer-variables th, table.bound-printer-variables td {
+.bound-printer-variables table th, .bound-printer-variables table td {
     text-align: center;
     background: transparent;
     border: none;
     padding: 0.3em 1.5em;
 }
 
-table.bound-printer-variables th {
+.bound-printer-variables table th {
     padding-top: 0;
 }
 
-table.bound-printer-variables td {
+.bound-printer-variables table td {
     padding-bottom: 0.9em;
 }
 
