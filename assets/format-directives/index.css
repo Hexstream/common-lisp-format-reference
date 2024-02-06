@@ -61,7 +61,7 @@
     border: none;
 }
 
-.bound-printer-variables table th, .bound-printer-variables table td {
+.bound-printer-variables table :is(th, td) {
     text-align: center;
     background: transparent;
     border: none;

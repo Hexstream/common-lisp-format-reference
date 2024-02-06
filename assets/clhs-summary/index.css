@@ -23,13 +23,13 @@
     background: linen;
 }
 
-#subsections-summary-table .\~, #subsections-summary-table .horizontal-grouping-header {
+#subsections-summary-table :is(.\~, .horizontal-grouping-header) {
     text-align: center;
     letter-spacing: 0.1em;
     padding: 0.4em;
 }
 
-#subsections-summary-table .recursive, #subsections-summary-table .variant {
+#subsections-summary-table :is(.recursive, .variant) {
     font-weight: normal;
     background-color: #E4E4E4;
 }
