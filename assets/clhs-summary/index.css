@@ -1,5 +1,5 @@
 .hanging-menu {
-    position: static;
+    position: revert;
     float: right;
 }
 
