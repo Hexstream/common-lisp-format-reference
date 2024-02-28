@@ -7,7 +7,7 @@
 }
 
 .overview table thead th {
-    white-space: revert;
+    white-space: initial;
 }
 
 .overview table ol {
