@@ -20,7 +20,7 @@
     font-style: italic;
     word-spacing: 0.25em;
     letter-spacing: 0.1em;
-    background: linen;
+    background-color: linen;
 }
 
 #subsections-summary-table :is(.\~, .horizontal-grouping-header) {
@@ -52,7 +52,7 @@
 
 #subsections-summary-table .horizontal-merge {
     text-align: center;
-    background: linen;
+    background-color: linen;
 }
 
 #subsections-summary-table p {
