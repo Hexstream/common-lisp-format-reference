@@ -66,7 +66,6 @@
 
 #subsections-summary-table .both {
     background-image: url("both-modifiers.svg");
-    background-repeat: no-repeat;
     background-position: 98% center;
 }
 
@@ -78,7 +77,6 @@
 
 #subsections-summary-table .combinable.modifier {
     background-image: url("combinable-left.svg");
-    background-repeat: no-repeat;
     background-position: 100% 50%;
     background-size: 1.2em;
 }
@@ -94,8 +92,6 @@
 
 #subsections-summary-table .interior {
     background-image: url("interior.svg");
-    background-repeat: no-repeat;
-    background-position: 50% 50%;
     background-size: 100% 100%;
 }
 
