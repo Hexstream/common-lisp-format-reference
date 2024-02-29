@@ -34,17 +34,6 @@
     background-color: #E4E4E4;
 }
 
-.grouping-semicircle {
-    position: absolute;
-    width: 5em;
-    height: 5em;
-    left: -4.2em;
-    background-image: url("grouping-semicircle.svg");
-    background-repeat: no-repeat;
-    background-position: 50% 50%;
-    background-size: 100% 100%;
-}
-
 #subsections-summary-table .big-merge {
     text-align: center;
     font-size: x-large;
