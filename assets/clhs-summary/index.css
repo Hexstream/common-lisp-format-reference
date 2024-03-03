@@ -87,7 +87,7 @@
 }
 
 #subsections-summary-table .rest {
-    text-align: right;
+    text-align: end;
 }
 
 #subsections-summary-table .interior {
@@ -106,5 +106,5 @@
 }
 
 #subsections-summary-table th.escape-number-prefix-args {
-    text-align: right;
+    text-align: end;
 }

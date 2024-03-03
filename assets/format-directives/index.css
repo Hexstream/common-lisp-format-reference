@@ -3,7 +3,7 @@
 }
 
 .overview table {
-    text-align: left;
+    text-align: initial;
 }
 
 .overview table thead th {
@@ -43,7 +43,7 @@
 }
 
 .arguments table tr th {
-    text-align: left;
+    text-align: initial;
 }
 
 .arguments table th.modifiers {
