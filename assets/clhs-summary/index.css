@@ -11,8 +11,9 @@
     font-size: x-large;
 }
 
-#subsections-summary-table ol li + li {
+#subsections-summary-table ol li {
     margin-top: 0.1em;
+    margin-bottom: 0.1em;
 }
 
 #subsections-summary-table .same-as {
@@ -50,10 +51,6 @@
 
 #subsections-summary-table p + p {
     margin-top: 0.3em;
-}
-
-#subsections-summary-table p + ol {
-    margin-top: 0;
 }
 
 #subsections-summary-table .modifier {
